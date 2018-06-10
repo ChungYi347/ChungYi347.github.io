@@ -8,6 +8,7 @@
 
 .nav {
     margin:auto;
+    text-align:center; 
 }
 
 .about {
@@ -24,4 +25,9 @@
 
 .publication {
     margin:auto
+}
+
+.centered {
+    display: block;
+    margin: auto;
 }
