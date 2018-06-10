@@ -1,9 +1,9 @@
 theme: jekyll-theme-cayman
 markdown: kramdown
 
-title: IT Blog
+title: 
 
-description: Development & Technical Training
+description: 
 
-cover: assets/built/images/blog-cover.png
+cover: images/cover_image.png
 
