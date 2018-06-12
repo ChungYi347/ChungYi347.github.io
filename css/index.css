@@ -1,3 +1,8 @@
+body {
+    background-color: #F6F6F6;
+    overflow: hidden;
+}
+
 .container {
     max-width:900px;
     margin-top: 10px;
@@ -30,4 +35,13 @@
 .centered {
     display: block;
     margin: auto;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.name {
+    margin: auto;
+    text-align:center; 
 }
