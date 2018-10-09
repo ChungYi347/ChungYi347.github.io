@@ -71,8 +71,10 @@ div.table {
 }
 
 .img_content {
-    text-align: left;
+    text-align: justify;
     font-style: normal;
+    width:100%;
+
 }
 
 .highlight {
@@ -132,6 +134,6 @@ div.table {
 }
 
 .figure{
-    
+    height:80%;
     display: block;
 }
