@@ -4,6 +4,7 @@
 <title>Chunggi Lee</title>
 
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/tooltip.css">
 
 </head>
 <body>
@@ -49,7 +50,7 @@
                 <span class="date"> Aug/2017 </span> 
                 <em class="em_content"> 
                     <span class="highlight"> Excellence award </span>, <b> National Super Computing Competition </b> </br>  @ KISTI - Rank4 $500 </br>
-                </em>
+                </e
             </div>
 
             <div class="table">
@@ -80,25 +81,46 @@
         <div class="project" id="project">
             <H1> Project </H1>
             <div class="row">
-              <div class="column">
-                  <img class="figure" src="images/designai.png">
+              <div class="column popup" onclick="myFunction(1)">
+	          <img class="figure" src="images/designai.png"></img>
+	          <span class="popuptext" id="myPopup1"> TO BE UPLOADED SOON! </span>
                   <p class="img_content"> 
-                    <b> GUIComp (GUI Companion) : A GUI prototyping tool for providing developers with three types of feedback (recommendation, evaluation, and attention panels). </b>
+                    <b> GUIComp (GUI Companion) : A GUI prototyping tool for providing developers with three types of feedback (recommendation, evaluation, and attention panels).</b>
                 </p>
               </div>
-              <div class="column">
-                  <img class="figure" src="images/traffic.png">
+              <div class="column popup" onclick="myFunction(2)">
+	          <img class="figure" src="images/traffic.png"></img>
+                  <span class="popuptext" id="myPopup2"> TO BE UPLOADED SOON! </span>
                   <p class="img_content"> 
                     <b> An Interactive Visual Analytics System for Exploring, Monitoring, and Forecasting Road Traffic Congestion </b>
+		    <span class="fund highlight">Supported by NIA (National Information Society Agency) 2018-Now </span>
                 </p>
               </div>
+            <div class="row">
+              <div class="column">
+                  <img class="figure" src="images/heatmap.png">
+                  <p class="img_content"> 
+		  <b> A Microarray Analysis, Gene Set Enrichment Analysis, and Protein-Protein Network Gennomics Analysis System with Gene Expression Data </b>
+		  <span class="fund highlight"> Supported by NIPA (National IT Industry Promotion Agency) 2016-2017 </span>
+              </div>
+              <div class="column">
+                  <img class="figure" src="images/circos.png">
+                  <p class="img_content"> 
+                    <b> A Comparative Genomics of Different Organisms System using Circos Layout </b>
+		    <span class="fund highlight"> Supported by NIPA (National IT Industry Promotion Agency) 2016-2017 </span>
+              </div>
+            </div>
+	    <!--
+            <div class="row">
               <div class="column">
                   <img class="figure" src="images/heatmap.png">
               </div>
               <div class="column">
-                  <img class="figure" src="images/traffic.png">
+                  <img class="figure" src="images/circos.png">
               </div>
             </div>
+	    -->
+	    <h3 />
             <img width="900" src="images/starline.png" class="centered">
         </div>
         <div class="publication" id="publication">
@@ -112,7 +134,7 @@
             </div>
             <div class="table">
                 <span class="date"> Submitted in Sep. </span> 
-                <em class="em_content"> 
+                <em class="em_left"> 
                     <b> I Know How You Can Improve Your Design: An InteractiveSelf-Education Tool for Mobile GUI Prototyping </b> </br>   </br>
                 </em>
             </div>
@@ -132,7 +154,13 @@
                
         </div>
     </div>
-    
+
+    <script>
+	function myFunction(num) {
+		var popup = document.getElementById("myPopup" + num.toString());
+	        popup.classList.toggle("show");
+	}
+    </script>
 
 </body>
 </html>
