@@ -1,6 +1,7 @@
 body {
     background-color: #F6F6F6;
     overflow-x: hidden;
+    font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 .container {
@@ -24,6 +25,12 @@ body {
     margin:auto
 }
 
+.project {
+    text-align: left;
+    margin:auto;
+    font-size : 16px;
+}
+
 .research {
     margin:auto
 }
@@ -39,6 +46,7 @@ body {
 
 .text-justify {
     text-align: justify;
+    font-size: 16.5px;
 }
 
 p.news {
@@ -68,11 +76,13 @@ div.table {
     float: right;
     text-align: right;
     font-style: normal;
+    font-size: 20px;
 }
 
 .img_content {
     text-align: justify;
     font-style: normal;
+    font-size: 20px;
     width:100%;
 
 }
