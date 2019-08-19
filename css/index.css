@@ -21,6 +21,10 @@ body {
     margin:auto
 }
 
+.education {
+    margin:auto
+}
+
 .news {
     margin:auto
 }
@@ -46,7 +50,7 @@ body {
 
 .text-justify {
     text-align: justify;
-    font-size: 16.5px;
+    font-size: 18px;
 }
 
 p.news {
@@ -76,13 +80,18 @@ div.table {
     float: right;
     text-align: right;
     font-style: normal;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.pub_content {
+    font-style: normal;
+    font-size: 18px;
 }
 
 .img_content {
     text-align: justify;
     font-style: normal;
-    font-size: 20px;
+    font-size: 18px;
     width:100%;
 
 }
@@ -133,7 +142,7 @@ div.table {
     margin-top: .8rem;
     padding-left: .4rem;
     padding-right: .4rem;
-    margin-bottom: .8rem;
+    margin-bottom: 3rem;
 }
 
 .column img {
@@ -150,5 +159,5 @@ div.table {
 }
 
 .fund{
-    font-size:12px;
+    font-size:15px;
 }
