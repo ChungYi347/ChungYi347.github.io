@@ -83,9 +83,20 @@ div.table {
     font-size: 18px;
 }
 
+.head_left{
+    float: left;
+}
+
 .pub_content {
     font-style: normal;
     font-size: 18px;
+}
+
+.skill_content {
+    font-style: normal;
+    font-size: 18px;
+    float:left;
+    text-align: left;
 }
 
 .img_content {
