@@ -1,239 +1,539 @@
-<!DOCTYPE html>
 <html>
-<head>
-<title>Chunggi Lee</title>
+  <head>
+        <title>Welcom! Chunggi Lee Page!</title>
+        <link rel="stylesheet" href="css/color-yellow.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/css/index.css">
+        <link rel="stylesheet" href="css/external.css">
+        
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.mixitup.min.js"></script>
+        <script src="js/jquery.waypoints.min.js"></script>
+  </head>
+  <body>
+  	<div class="overflow-wrap">
+	    <section id="home" class="flex height-fix">
+		    <div class="area" >
+		        <ul class="circles">
+		            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+		        </ul>
+		    </div >
 
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/tooltip.css">
+		    <div class="flex">
+			    <div class="context">
+			        <h1>Hello, I'm <span class="highlight">Chunggi Lee</span>.
+			        <br>
+			        <br>
+			        <br>
+			        I'm a Data Scientist & HCI Researcher.</h1>
+			    </div>
+			    <div class="button page-link" dest="about">View My Work ↓</div>
 
-</head>
-<body>
-    <div>
-        <img width="900" src="images/cover_image.png" class="centered">
-        <H1 class="name"> Chunggi Lee </H1>
-        <br />
-    </div>
+			    <nav class="flex">
+			     	<div class="link-wrap">
+			            <div class="active page-link" dest="home">home</div>
+			            <div class="page-link" dest="about">about</div>
+			            <div class="page-link" dest="portfolio">portfolio</div>
+			            <div class="page-link" dest="blog">blog</div>
+			            <div class="page-link" dest="contact">contact</div>
+			        </div>
+			        <i class="mdi mdi-menu"></i>
+			    </nav>
+			</div>
+	    </section>
 
-    <div class="nav">
-        <a href="#about">About</a>
-        <span>|</span>
-        <a href="#education">Education</a>
-        <span>|</span>
-        <a href="#news">NEWS</a>
-        <span>|</span>
-        <a href="#project">Project</a>
-        <span>|</span>
-        <a href="#publication">Publication</a>
-        <span>|</span>
-        <a href="#contact">Contact</a>
-        <span>|</span>
-        <a href="file/ChunggiLeeCV.pdf">CV</a>
-        <span>|</span>
-        <a href="Part/Study.html">Study</a>
-    </div>
+	    <section class="flex" id="about">
+		    <div class="header waypoint" data-animation="slide-in-left" >ABOUT</div>
+		    <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
+	     
+		    <div class="flex row label-wrap">
+		        <div class="flex row-gt-sm">
+		        <div class="flex bullet-wrap ">
+		          <div class="hex-wrap waypoint" data-animation="flip-in-x">
+		            <div class="hexagon">
+		              <i class="mdi mdi-speedometer"></i>
+		            </div>
+		          </div>
+		          <div class="waypoint" data-animation="fade-in">
+		            <div class="label bold">HCI</div>
+		            <div>Fast load times and lag free interaction, my highest priority.</div>
+		          </div>
+		        </div>
 
-    <div class="container">
-        <div class="about" id="about">
-            <H1>ABOUT</H1>
-            <p class="text-justify"> I am a master student in the computer science department at <a href="http://www.unist.ac.kr/" > Ulsan National Institute of Science and Technology (UNIST) </a>. I work with Sungahn Ko in the (<a href="http://ivaderlab.unist.ac.kr/" > Interactive Visual Analysis and Data Exploration Researc (iVADER) Lab</a>. My resesarch topics are visual analytics science and technology and human-computer interaction to be specific making interactive tools and data-driven applications with artificial intelligence techniques. 
-            </p>
-            <img width="900" src="images/starline.png" class="centered">
-        </div>
+		        <div class="flex bullet-wrap " >
+		          <div class="hex-wrap waypoint" data-animation="flip-in-x" data-delay=".2s">
+		            <div class="hexagon">
+		              <i class="mdi mdi-cellphone-link"></i>
+		            </div>
+		          </div>
+		          <div class="waypoint" data-animation="fade-in" data-delay=".2s">
+		            <div class="label bold">Visualization</div>
+		            <div>My layouts will work on any device, big or small.</div>
+		          </div>
+		        </div>
+		        </div>
+		        <div class="flex row-gt-sm">
+		          <div class="flex bullet-wrap " >
+		            <div class="hex-wrap waypoint" data-animation="flip-in-x" data-delay=".4s">
+		              <div class="hexagon">
+		                <i class="mdi mdi-lightbulb-outline"></i>
+		              </div>
+		            </div>
+		            <div class="waypoint" data-animation="fade-in" data-delay=".4s">
+		              <div class="label bold">Interactive System</div>
+		              <div>Strong preference for easy to use, intuitive UX/UI.</div>
+		            </div>
+		          </div>
 
-        <div class="publication" id="publication">
-            <H1> PUBLICATION </H1>
-            <H2> <span class="highlight">INTERNATIONAL</span> CONFERENCE </H2>
-            <div class="table">
-                <!-- <span class="date"> Submitted in Aug. </span> -->
-                <em class="pub_content"> 
-                    <b>C. Lee</b>, Y. Kim, S. Jin, D. Kim, R. Maciejewski, D. Ebert, and S. Ko, <b> 
-                    "A Visual Analytics System for Exploring, Monitoring, and Forecasting Road Traffic Congestion" </b> IEEE transactions on visualization and computer graphics (<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945">TVCG</a> IF=3.78), 2019 (Proc. <a href="http://ieeevis.org/year/2019/welcome">IEEE VIS'19</a>), Accepted. [<a href="https://ieeexplore.ieee.org/document/8735916">LINK</a>] [<a href="https://chungyi347.github.io/file/TVCG2019.pdf">PDF</a>] [<a href="http://imnews.imbc.com/replay/2019/nwtoday/article/5399183_24616.html">NEWS1</a>] [<a href="http://news.kbs.co.kr/news/view.do?ncd=4238637&ref=A">NEWS2</a>] [<a href="https://news.sbs.co.kr/news/endPage.do?news_id=N1005344664&plink=ORI&cooper=NAVER&plink=COPYPASTE&cooper=SBSNEWSEND">NEWS3</a>] </br>
-                </em>
+		          <div class="flex bullet-wrap " >
+		            <div class="hex-wrap waypoint" data-animation="flip-in-x" data-delay=".6s">
+		              <div class="hexagon">
+		                <i class="mdi mdi-rocket"></i>
+		              </div>
+		            </div>
+		            <div class="waypoint" data-animation="fade-in" data-delay=".6s">
+		              <div class="label bold">AI</div>
+		              <div>Websites don't have to be static, I love making pages come to life.</div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+
+	        <div class="flex skills-wrapper row">
+	        	<div class="flex flex-50-gt-sm waypoint" data-animation="slide-in-left">
+		          <img src="img/me.png" class="me">
+		          <!-- <div><img class="up-arrow" src="img/up-arrow.png"></div> -->
+		          
+		          <div class="introText">
+		          	I am a master student in the computer science department at <a class="highlight" href="https://www.unist.ac.kr" target="_blank">Ulsan National Institute of Science and Technology (UNIST)</a>. 
+		          	<br>
+		          	I work with Sungahn Ko in the <a class="highlight" href="http://ivaderlab.unist.ac.kr/" target="_blank">Interactive Visual Analysis and Data Exploration Research (iVADER) Lab</a>. 
+		          	<br>
+		          	My resesarch topics are visual analytics science and technology and human-computer interaction to be specific making interactive tools and data-driven applications with artificial intelligence techniques.
+		          	<br>
+		            I have serious passion for UI effects, animations and creating intuitive, dynamic user experiences.
+		          </div>
+		        </div> 
+		    </div>
+
+		    <div class="skills-wrapper flex row-gt-sm">
+		          <!--<div class="row">-->
+		          	<div class="waypoint" data-animation="slide-in-left">
+                    <!--Education-->
+	                    <div class="col">
+	                        <h3 class="subtitle">Education</h3>
+	                        <div class="item">
+	                            <div class="date">
+	                                <i class="fa fa-calendar"></i> <span>2018 - 2020</span>
+	                            </div>
+	                            <div class="content">
+	                            	<h4>Ulsan National Institute of Science and Technology <br> (UNIST) </h4>
+	                                <p>Ulsan, South Korea</p> <br>
+	                                <p>Master of Science in Computer Science and Engineering</p>
+	                                <p>Thesis: GUIComp: A GUI Design Assistantwith Real-Time, Multi-Faceted Feedback</p>
+	                            </div>
+	                        </div>
+
+	                        <div class="item">
+	                            <div class="date">
+	                                <i class="fa fa-calendar" aria-hidden="true"></i> <span>2014 - 2018</span>
+	                            </div>
+	                            <div class="content">
+	                                <h4>Ulsan National Institute of Science and Technology <br> (UNIST)</h4>
+	                                <p>Ulsan, South Korea</p> <br>
+	                                <p>Bachelor of Science in Computer Science and Engineering <br> (Magna Cum Laude)</p>
+	                            </div>
+	                        </div>
+
+	                    </div><!--.col-md-6-->
+	                </div>
+	                <div class="waypoint" data-animation="slide-in-right">
+	                    <!--Experience-->
+	                    <div class="col sm-xs-margin-top-60">
+	                        <h3 class="subtitle">Experience</h3>
+
+	                        <div class="item">
+	                            <div class="date">
+	                                <i class="fa fa-calendar" aria-hidden="true"></i> <span> Jun 2016 - Present</span>
+	                            </div>
+	                            <div class="content">
+	                                <h4>Interactive Visual Analysis & Data Exploration Research Lab</h4>
+	                                <p>Research & Deverloper</p>
+                                	<p>Advisor: Sungahn Ko</p>
+	                            </div>
+	                        </div>
+
+	                        <div class="item">
+	                            <div class="date">
+	                                <i class="fa fa-calendar" aria-hidden="true"></i> <span> Jul-Aug 2015</span>
+	                            </div>
+	                            <div class="content">
+	                                <h4>KIV IT Volunteer Work In Mongolia</h4>
+	                                <p>Lecturer</p>
+	                            </div>
+	                        </div>
+
+	                        <div class="item">
+	                            <div class="date">
+	                                <i class="fa fa-calendar" aria-hidden="true"></i> <span> Sep-Dec 2015 & Mar-Jun 2019</span>
+	                            </div>
+	                            <div class="content">
+	                                <h4>UNIST Engineering Programming & <br> Object Oriented Programming</h4>
+	                                <p>Teaching Assistant</p>
+	                            </div>
+	                        </div>
+
+	                        <div class="item">
+	                            <div class="date">
+	                                <i class="fa fa-calendar" aria-hidden="true"></i> <span>2014 - 2016</span>
+	                            </div>
+	                            <div class="content">
+	                                <h4>UNIST HeXA Member</h4>
+	                                <p>Member & Android Team Leader</p>
+	                            </div>
+	                        </div>
+
+	                    </div><!--.col-md-6-->
+	                </div>
+                <!--</div>--><!--.row-->
             </div>
-            <div class="table">
-                <em class="pub_content"> 
-                    <b>C. Lee</b>, S. Kim, D. Han, H. Yang, Y. Park, B. Kwon, and S. Ko, <b> "A GUI Design Assistant with RealTime, MultiFaceted Feedback." </b>, Submitted </br>
-                </em>
-            </div>
-            <div class="table">
-                <em class="pub_content"> 
-                    J. Oh, <b>C. Lee</b>, K. Kim, H. Kim, O. Kwon, E. Ragan, B. Kwon, and S. Ko, <b> "An Empirical Study on Multiple Coordinated Views with Visualization
-Duplication." </b>, Submitted </br> 
-                </em>
-            </div>
-            <div class="table">
-                <em class="pub_content"> 
-                    Y. Han, <b>C. Lee</b>, S. Kim, and S. Ko, <b> "System Architecture for Progressive Augmented Reality." </b>, In Proceedings of the 17th Annual International
-Conference on Mobile Systems, Applications, and Services (<a href="https://www.sigmobile.org/mobisys/2019/">MobiSys'19</a>), 2019, Accepted (Poster) [<a href="https://dl.acm.org/citation.cfm?id=3328605">LINK</a>] [<a href="https://chungyi347.github.io/file/mobisyshan2019.pdf">PDF</a>] </br> 
-                </em>
-            </div>
-            <div class="table">
-                <em class="pub_content"> 
-                    K. Kim, S. Kim, <b>C. Lee</b>, and S. Ko, <b> "Modeling Exploration/Exploitation Decisions through Mobile Sensing for Understanding Mechanisms
-of Addiction." </b>, In Proceedings of the 17th Annual International
-Conference on Mobile Systems, Applications, and Services (<a href="https://www.sigmobile.org/mobisys/2019/">MobiSys'19</a>), 2019, Accepted (Poster) [<a href="https://dl.acm.org/citation.cfm?id=3328599">LINK</a>] [<a href="https://chungyi347.github.io/file/mobisyskim2019.pdf">PDF</a>]</br> 
-                </em>
-            </div>
-            <H2> <span class="highlight">DOMESTIC</span> CONFERENCE </H2>
-            <div class="table">
-                <em class="pub_content"> 
-                    J. Lee, K. Kim, <b>C. Lee</b>, and S. Ko, <b> South Korea Visualization based Deep Learning Analysis Technology</b>, The Korean Society for Noise and Vibration Engineering (<a href="http://www.ksnve.or.kr/english/">KSNVE</a>), 2017, Accepted [<a href="http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07266060&language=ko_KR5">LINK</a>] [<a href="https://chungyi347.github.io/file/ksnvelee2017.pdf">PDF</a>]</br>
-                </em>
-            </div>
-            <div class="table">
-                <em class="pub_content"> 
-                    Y. Oh, <b>C. Lee</b>, J. Oh, J. Yang, H. Gwag, S. Moon, S. Park, and S. Ko, <b> Introdcution of Visual Analytics</b>, Korea Computer Graphics Society, 2016, Accepted [<a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07068724&language=ko_KR">LINK</a>] [<a href="https://chungyi347.github.io/file/kcgsoh2016.pdf">PDF</a>]  </br>
-                </em>
-            </div>
-            <img width="900" src="images/starline.png" class="centered">
-        </div>
-
-        <div class="project" id="project">
-            <H1> PROJECT </H1>
-            <div class="row">
-              <div class="column popup" onclick="myFunction(1)">
-	          <img class="figure" src="images/designai.png"></img>
-	          <span class="popuptext" id="myPopup1"> TO BE UPLOADED SOON! </span>
-                  <p class="img_content"> 
-                    <b> A real-time multi-faceted feedback GUI prototyping tool with three types of feedback (recommendation, evaluation, and attention panels).</b>  <span class="fund highlight"> Submitted</span>
-                </p>
-              </div>
-              <div class="column popup" onclick="myFunction(2)">
-                <a href="https://chungyi347.github.io/file/TVCG2019.pdf">
-                   <img class="figure" src="images/traffic.png"></img>
-                </a>
-                  <span class="popuptext" id="myPopup2"> Loading PDF File. </span>
-                  <p class="img_content"> 
-                    <b> A Visual Analytics System for Exploring, Monitoring, and Forecasting Road Traffic Congestion </b>  <span class="fund highlight"> IEEE Transaction on Visualization and Computer Graphics (<a href="https://ieeexplore.ieee.org/document/8735916"> TVCG</a> IF=3.78), Invited (Proc. <a href="http://ieeevis.org/year/2019/welcome">IEEE VIS 2019</a>), 
-        <a href="https://chungyi347.github.io/file/TVCG2019.pdf">[PAPER]</a>, <a href="https://chungyi347.github.io/file/VISFastForward.mp4">[VIDEO]</a> </span>
-                </p>
-              </div>
-            <div class="row">
-              <div class="column">
-                  <img class="figure" src="images/heatmap.PNG">
-                  <p class="img_content"> 
-		  <b> A Microarray Analysis, Gene Set Enrichment Analysis, and Protein-Protein Network Gennomics Analysis System with Gene Expression Data </b>
-		  <span class="fund highlight"> Supported by NIPA (National IT Industry Promotion Agency) 2016-2017 <a href="file/GenomeProject.pdf">Link</a></span>
-              </div>
-              <div class="column">
-                  <img class="figure" src="images/circos.png">
-                  <p class="img_content"> 
-                    <b> A Comparative Genomics of Different Organisms System using Circos Layout </b>
-		    <span class="fund highlight"> Supported by NIPA (National IT Industry Promotion Agency) 2016-2017 <a href="file/GenomeProject.pdf">Link</a></span>
-              </div>
-              <div class="column">
-                <a href="http://road.unist.ac.kr/">
-                  <img class="figure" src="images/road.PNG">
-                </a>
-                  <p class="img_content"> 
-                    <b> Artificial Intelligence based Traffic Congestion Forecast Broadcasting System </b>
-            <span class="fund highlight">Supported by NIA (National Information Society Agency) 2018-Now <a href="http://road.unist.ac.kr/">DEMO</a> <a href="http://www.ksilbo.co.kr/news/articleView.html?idxno=672683#08fn">NEWS</a> <a href="file/190114Forecast.WAV">EXAMPLE</a> </span>
-              </div>
-            </div>
-	    <!--
-            <div class="row">
-              <div class="column">
-                  <img class="figure" src="images/heatmap.png">
-              </div>
-              <div class="column">
-                  <img class="figure" src="images/circos.png">
-              </div>
-            </div>
-	    -->
-	    <h3 />
-            <img width="900" src="images/starline.png" class="centered">
-        </div>
-
-        <div class="news" id="news">
-            <H1>NEWS</H1>
-            <H2> <span class="highlight">HONORS</span> & AWARDS</H2>
-
-            <div class="table"> 
-                <span class="date"> Dec/2017 </span> 
-                <em class="em_content"> 
-                    <span class="highlight"> Bronze Prize </span>, <b> Naver UNIST Undergraduate Poster Award '17 </b>  </br>  @ Naver & UNIST - $1,500 <br /> 
-                </em>
-            </div>
-
-            <div class="table">
-                <span class="date"> Aug/2017 </span> 
-                <em class="em_content"> 
-                    <span class="highlight"> Excellence award </span>, <b> National Super Computing Competition </b> </br>  @ KISTI - Rank4 $500 </br>
-                </e
-            </div>
-
-            <div class="table">
-                <span class="date"> Dec/2016, Dec/2017 </span> 
-                <em class="em_content"> 
-                    <span class="highlight"> Semester Academic Excellence Award </span>, <b> 2016 Fall Semester,2017 Fall Semester GPA 3.94/4.3, GPA 3.93/4.3 </b> </br> @ UNIST </br>
-                </em>
-            </div>
-
-            <div class="table">
-                <span class="date"> Oct/2016 </span> 
-                <em class="em_content"> 
-                    <span class="highlight">3rd place </span>,  <b> HeXAThon 2016 Ulsan </b>, </br>  @ UNIST & NAVER  - Received anaward of $500 </br>
-                
-                    Develop Customization Interior Design VR Application</br>
-                </em> 
-            </div>
-
-            <div class="table">
-                <span class="date"> Oct/2016 </span> 
-                <em class="em_content"> 
-                    <span class="highlight"> 3rd place </span>, <b> Competition of Using Public Data of Ministry of Trade Industry and Energy</b> </br>  @ Seoul, South Korea Ministry of Trade, Industry and Energy - $1,000</br>
-                    Develop Emotional Color Combination VR Application </br>
-                </em>
-            </div>
-            <img width="900" src="images/starline.png" class="centered">
-        </div>
-
-        <div class="publication" id="publication">
-            <H1 class="head_left"> SKILL </H1>
-            <div class="table">
-                <!-- <span class="date"> Submitted in Aug. </span> -->
-                <em class="skill_content"> 
-                    <b>Programming Language</b>: <span class="highlight">Python</span> · C++ · HTML · CSS · JavaScript </br>
-                    <b>DeepLearning</b>: <span class="highlight">Keras</span> · PyTorch · Pandas · Numpy · SciPy · Scikit-learn </br>
-                    <b>Back-end</b>: <span class="highlight">Django</span> · MySQL </br>
-                    <b>Front-end</b>: D3.js · jQuery · Ajax · Bootstrap </br>
-                    <b>Version Control</b>: GitHub · GitLab </br>
-                    <b>Language</b>: Korean · English </br>
-                </em>
-            </div>
-            <img width="900" src="images/starline.png" class="centered">
-        </div>
-
-        <div class="publication" id="publication">
-            <H1 class="head_left"> PRESENTATION </H1>
-            <div class="table">
-                <span class="date"> Aug 2018 </span> 
-                <em class="em_left"> 
-                    <b> Naver TechTalk </b> </br> 
-                Traffic Prediction Deep Learning Model Introduction - DCRNN, LCRNN, STGCN, and GAAN <a href="file/navertechtalk.pdf">PDF</a> </br>
-                </em>
-            </div>     
-        </div>
-
-        <div class="publication" id="publication">
-            <H1 class="head_left"> PATENT </H1> </br>
-            <div class="table">
-                <span class="date"> 07.10.2018 </span> 
-                <em class="em_left"> 
-                    <b> Traffic Information Visualization Analysis Device and Method </b>
-                </em>
-            </div>     
-        </div>
 
 
-    </div>
+            <<!--div class="flex skills-wrapper row-gt-sm">
+                <div class="flex skills-wrapper row-gt-sm">
+                	<div class="flex waypoint" data-animation="slide-in-left">
+	                    <div class="col">
+	                        <div class="skills">
+	                            
+	                            <h3 class="subtitle margin-top-60">My Skills</h3>
 
-    <script>
-	function myFunction(num) {
-		var popup = document.getElementById("myPopup" + num.toString());
-	        popup.classList.toggle("show");
-	}
-    </script>
+	                            <div class="skill">
+	                                <h5 class="name">HTML</h5>
+	                                <span class="percentage">90%</span>
+	                                <div class="progress_bg">
+	                                    <div class="progress_bar"></div>
+	                                </div>
+	                            </div>
+	                            
+	                            <div class="skill">
+	                                <h5 class="name">CSS3</h5>
+	                                <span class="percentage">82%</span>
+	                                <div class="progress_bg">
+	                                    <div class="progress_bar"></div>
+	                                </div>
+	                            </div>
 
+	                            <div class="skill">
+	                                <h5 class="name">jQuery</h5>
+	                                <span class="percentage">77%</span>
+	                                <div class="progress_bg">
+	                                    <div class="progress_bar"></div>
+	                                </div>
+	                            </div>
+
+	                        </div>
+	                    </div>
+                	</div>
+                	<div class="flex waypoint" data-animation="slide-in-right">
+	                    <div class="col">
+
+	                        <div class="skills">
+
+	                            <h3 class="subtitle margin-top-60">Languages</h3>
+
+	                            <div class="skill">
+	                                <h5 class="name">English</h5>
+	                                <span class="percentage">93%</span>
+	                                <div class="progress_bg">
+	                                    <div class="progress_bar"></div>
+	                                </div>
+	                            </div>
+
+	                            <div class="skill">
+	                                <h5 class="name">Spanish</h5>
+	                                <span class="percentage">86%</span>
+	                                <div class="progress_bg">
+	                                    <div class="progress_bar"></div>
+	                                </div>
+	                            </div>
+	                            <div class="skill">
+	                                <h5 class="name">Italian</h5>
+	                                <span class="percentage">72%</span>
+	                                <div class="progress_bg">
+	                                    <div class="progress_bar"></div>
+	                                </div>
+	                            </div>
+
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+		    </div>
+			-->
+		    
+	  	</section>
+
+	  	<section class="flex" id="portfolio">
+		    <div class="header waypoint" data-animation="slide-in-right">PROJECTS</div>
+		    <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".3s"></div>
+
+		    <div class="filter-wrap waypoint" data-animation="fade-in" data-delay=".3s">
+		      <div class="flex row">
+		        <div class="filter" data-filter="all">ALL</div>
+		        <div class="filter" data-filter=".vis">VISUALIZATION</div>
+		        <div class="filter" data-filter=".hci">HCI</div>
+		        <div class="filter" data-filter=".dl">DEEP LEARNING</div>
+		      </div>
+		      <div class="float-bar">
+		        <div class="flex row">
+		          <div class="filter" data-filter="all">ALL</div>
+		          <div class="filter" data-filter=".vis">VISUALIZATION</div>
+		          <div class="filter" data-filter=".hci">HCI</div>
+		          <div class="filter" data-filter=".dl">DEEP LEARNING</div>
+		        </div>
+		      </div>
+		    </div>
+
+		    <div id="gallery" class="container flex row wrap waypoint">
+
+		      <div class="mix vis" data-my-order="1">
+		        <div>
+		          <div class="card"></div>
+		          <div class="text">
+		            <div class="bold">Traffic Congestion Analysis</div>
+		            <span class="highlight">IEEE TVCG 2019</span>
+		          </div>
+		          <div class="button" id="walker">PDF</div>
+		        </div>
+		      </div>
+
+		      <div class="mix vis" data-my-order="1">
+		        <div>
+		          <div class="card"></div>
+		          <div class="text">
+		            <div class="bold">Traffic Congestion Forecasting</div>
+		            <span class="highlight">Traffic Broadcasting Station</span>
+		          </div>
+		          <div class="button" id="mystand">LINK</div>
+		        </div>
+		      </div>
+
+		      <div class="mix hci" data-my-order="1">
+		        <div>
+		          <div class="card"></div>
+		          <div class="text">
+		            <div class="bold">GUI Prototyping Tool</div>
+		            <span class="highlight">Submitted</span>
+		          </div>
+		          <div class="button" id="roambi">PDF</div>
+		        </div>
+		      </div>
+
+		      <div class="mix vis" data-my-order="1">
+		        <div>
+		          <div class="card"></div>
+		          <div class="text">
+		            <div class="bold">Gene Expression Data Analysis</div>
+		            <span class="highlight">National IT Industry Promotion Agency</span>
+		          </div>
+		          <div class="button" id="powur">LINK</div>
+		        </div>
+		      </div>
+
+
+		      <div class="mix vis" data-my-order="1">
+		        <div>
+		          <div class="card"></div>
+		          <div class="text">
+		            <div class="bold">Comparative Genomics w/ Circos</div>
+		            <span class="highlight">National IT Industry Promotion Agency</span>
+		          </div>
+		          <div class="button" id="themall">LINK</div>
+		        </div>
+		      </div>
+
+		      <div class="mix dl" data-my-order="1">
+		        <div>
+		          <div class="card"></div>
+		          <div class="text">
+		            <div class="bold">Traffic Prediction Model</div>
+		            <span class="highlight">Submitted</span>
+		          </div>
+		          <div class="button" id="themall"></div>
+		        </div>
+		      </div>
+		    </div>
+		  </section>
+		  <section class="flex" id="publication">
+		    <div class="header waypoint" data-animation="slide-in-left" >PUBLICATION</div>
+		    <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
+
+		    <div class="header waypoint" data-animation="slide-in-right" >INTERNALTION CONFERENCE</div>
+		    <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".5s"></div>
+		    <div class="skills-wrapper flex row-gt-sm">
+		          <!--<div class="row">-->
+	          	<div class="waypoint" data-animation="slide-in-left">
+                <!--Education-->
+                    <div class="col">
+                        <div class="pub">
+                            <div class="date">
+                                <i class="fa fa-calendar"></i> <span>2018 - 2020</span>
+                            </div>
+                            <div class="content">
+                            	<h4>A Visual Analytics System for Exploring, Monitoring, and Forecasting Road Traffic Congestion</h4>
+                                <p>C. Lee, Y. Kim, S. Jin, D. Kim, R. Maciejewski, D. Ebert, and S. Ko</p> <br>
+                                <p>IEEE transactions on visualization and computer graphics (TVCG IF=3.78), 2019 (Proc. IEEE VIS'19), Accepted.</p>
+                                <p>PDF</p>
+                            </div>
+                        </div>
+
+                        <div class="pub">
+                            <div class="date">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> <span>2014 - 2018</span>
+                            </div>
+                            <div class="content">
+                                <h4>System Architecture for Progressive Augmented Reality.</h4>
+                                <p>Y. Han, C. Lee, S. Kim, and S. Ko</p> <br>
+                                <p>Proceedings of the 17th Annual International Conference on Mobile Systems, Applications, and Services (MobiSys'19), 2019, Accepted (Poster)</p>
+                            </div>
+                        </div>
+
+	                    <div class="pub">
+                            <div class="date">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> <span>2014 - 2018</span>
+                            </div>
+                            <div class="content">
+                                <h4>Modeling Exploration/Exploitation Decisions through Mobile Sensing for Understanding Mechanisms of Addiction.</h4>
+                                <p>K. Kim, S. Kim, C. Lee, and S. Ko</p> <br>
+                                <p>In Proceedings of the 17th Annual International Conference on Mobile Systems, Applications, and Services (MobiSys'19), 2019, Accepted (Poster)</p>
+                            </div>
+	                    </div><!--.col-md-6-->
+	                </div>
+                </div>
+            </div>
+		    <div class="header waypoint" data-animation="slide-in-left" >SUBMITTED</div>
+		    <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
+
+		    <div class="skills-wrapper flex row-gt-sm">
+		          <!--<div class="row">-->
+	          	<div class="waypoint" data-animation="slide-in-left">
+                <!--Education-->
+                    <div class="col">
+                        <div class="pub">
+                            <div class="date">
+                                <i class="fa fa-calendar"></i> <span>2018 - 2020</span>
+                            </div>
+                            <div class="content">
+                            	<h4>A GUI Design Assistant with RealTime, MultiFaceted Feedback.</h4>
+                                <p>C. Lee, S. Kim, D. Han, H. Yang, Y. Park, B. Kwon, and S. Ko</p> <br>
+                                <p>Submitted, ACM CHI 2020</p>
+                                <p>PDF</p>
+                            </div>
+                        </div>
+
+                        <div class="pub">
+                            <div class="date">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> <span>2014 - 2018</span>
+                            </div>
+                            <div class="content">
+                                <h4>An Empirical Study on Multiple Coordinated Views with Visualization Duplication.</h4>
+                                <p>J. Oh, C. Lee, K. Kim, H. Kim, O. Kwon, E. Ragan, B. Kwon, and S. Ko</p> <br>
+                                <p>Submitted, IEEE TVCG</p>
+                            </div>
+                        </div>
+                    </div><!--.col-md-6-->
+                </div>
+            </div>
+
+		    <div class="header waypoint" data-animation="slide-in-right" >INTERNALTION CONFERENCE</div>
+		    <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".5s"></div>
+
+		    <div class="skills-wrapper flex row-gt-sm">
+		          <!--<div class="row">-->
+	          	<div class="waypoint" data-animation="slide-in-left">
+                <!--Education-->
+                    <div class="col">
+                        <div class="pub">
+                            <div class="date">
+                                <i class="fa fa-calendar"></i> <span>2018 - 2020</span>
+                            </div>
+                            <div class="content">
+                            	<h4>Visualization based Deep Learning Analysis Technology.</h4>
+                                <p>J. Lee, K. Kim, C. Lee, and S. Ko</p> <br>
+                                <p>The Korean Society for Noise and Vibration Engineering (KSNVE), 2017, Accepted</p>
+                                <p>PDF</p>
+                            </div>
+                        </div>
+
+                        <div class="pub">
+                            <div class="date">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> <span>2014 - 2018</span>
+                            </div>
+                            <div class="content">
+                                <h4>Introdcution of Visual Analytics.</h4>
+                                <p>Y. Oh, C. Lee, J. Oh, J. Yang, H. Gwag, S. Moon, S. Park, and S. Ko</p> <br>
+                                <p>Korea Computer Graphics Society, 2016, Accepted</p>
+                                <p>PDF</p>
+                            </div>
+                        </div>
+                    </div><!--.col-md-6-->
+                </div>
+            </div>
+
+	     </section>
+
+	     <section id="contact">
+		    <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
+		      <path d="M0 0 L50 100 L100 0 Z" fill="white" stroke="white"></path>
+		    </svg>
+		    <div class="container flex">
+		      <div class="header waypoint" data-animation="slide-in-left">CONTACT</div>
+		      <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".25s"></div>
+		      <div class="highlight waypoint" data-animation="slide-in-right" data-delay=".5s">Have a question or want to work together?</div>
+		      <form class="waypoint" data-animation="pop-in" data-delay=".5s" id="contact-form">
+		        <input placeholder="Name" type="text" name="name" required>
+		        <input placeholder="Enter email" type="email" name="email" required>
+		        <textarea placeholder="Your Message" type="text" name="message"></textarea>
+		        <div id="success">
+		          <div>Your message was sent successfully. Thanks!<span id="close" class="mdi mdi-close"></span></div>
+		        </div>
+		        <input class="button" type="submit" id="submit" value=SUBMIT>
+		      </form>
+		    </div>
+		  </section>
+
+		  <footer>
+		    <i class="mdi mdi-chevron-double-up page-link" dest="home"></i>
+
+		    <div class="icon-wrap flex row">
+		      <a href="https://www.linkedin.com/in/">
+		        <div class="flex icon" id="icon-2">
+		          <i class="mdi mdi-linkedin"></i>
+		        </div>
+		      </a>
+		      <a href="https://www.facebook.com/">
+		        <div class="flex icon" id="icon-3">
+		          <i class="mdi mdi-facebook"></i>
+		        </div>
+		      </a>
+		      <a href="https://instagram.com/">
+		        <div class="flex icon" id="icon-4">
+		          <i class="mdi mdi-instagram"></i>
+		        </div>
+		      </a>
+		      <a href="http://codepen.io/">
+		        <div class="flex icon" id="icon-5">
+		          <i class="mdi mdi-codepen"></i>
+		        </div>
+		      </a>
+		    </div>
+		    <div class="info-box">
+		      <div class="footnote">MATTHEW WILLIAMS <span class="highlight">&copy;2015</span></div>
+		    </div>
+		  </footer>
+
+	</div>
+    <script src="index.js"></script>
 </body>
 </html>
