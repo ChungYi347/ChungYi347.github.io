@@ -47,14 +47,15 @@ $(function() {
     // Link Highlighting
     if (pos2 > $('#home').offset().top)       { highlightLink('home'); }
     if (pos2 > $('#about').offset().top)      { highlightLink('about'); }
-    if (pos2 > $('#portfolio').offset().top)  { highlightLink('portfolio'); }
+    if (pos2 > $('#project').offset().top)  { highlightLink('project'); }
+    if (pos2 > $('#publication').offset().top)  { highlightLink('publication'); }
     /*
     if (pos2 > $('#blog').offset().top)       { highlightLink('blog'); }
+    */
     if (pos2 > $('#contact').offset().top ||
         pos + $(window).height() === $(document).height()) {
           highlightLink('contact');
     }
-    */
 
     // Prevent Hover on Scroll
     clearTimeout(lockTimer);
@@ -153,7 +154,7 @@ $(function() {
     e.preventDefault();
 
       $.ajax({
-          url: "",
+          url: "https://formspree.io/xnqqdegq",
           method: "POST",
           data: { message: $('form').serialize() },
           dataType: "json"

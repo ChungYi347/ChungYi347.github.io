@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/external.css">
+        <link rel="stylesheet" href="css/materialdesignicons.min.css">
         
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.mixitup.min.js"></script>
@@ -34,9 +35,10 @@
 			     	<div class="link-wrap">
 			            <div class="active page-link" dest="home">home</div>
 			            <div class="page-link" dest="about">about</div>
-			            <div class="page-link" dest="portfolio">portfolio</div>
-			            <div class="page-link" dest="blog">blog</div>
+			            <div class="page-link" dest="project">project</div>
+			            <div class="page-link" dest="publication">publication</div>
 			            <div class="page-link" dest="contact">contact</div>
+			            <div class="page-link" dest="cv" OnClick="location.href ='file/ChunggiLeeCV.pdf'" style="cursor:pointer;">CV</div>
 			        </div>
 			        <i class="mdi mdi-menu"></i>
 			    </nav>
@@ -52,24 +54,24 @@
 		        <div class="flex bullet-wrap ">
 		          <div class="hex-wrap waypoint" data-animation="flip-in-x">
 		            <div class="hexagon">
-		              <i class="mdi mdi-speedometer"></i>
+		              <i class="mdi mdi-emoticon"></i>
 		            </div>
 		          </div>
 		          <div class="waypoint" data-animation="fade-in">
 		            <div class="label bold">HCI</div>
-		            <div>Fast load times and lag free interaction, my highest priority.</div>
+		            <div>Human-Computer Interaction.</div>
 		          </div>
 		        </div>
 
 		        <div class="flex bullet-wrap " >
 		          <div class="hex-wrap waypoint" data-animation="flip-in-x" data-delay=".2s">
 		            <div class="hexagon">
-		              <i class="mdi mdi-cellphone-link"></i>
+		              <i class="mdi mdi-chart-bar"></i>
 		            </div>
 		          </div>
 		          <div class="waypoint" data-animation="fade-in" data-delay=".2s">
 		            <div class="label bold">Visualization</div>
-		            <div>My layouts will work on any device, big or small.</div>
+		            <div>Data Visualition.</div>
 		          </div>
 		        </div>
 		        </div>
@@ -77,24 +79,24 @@
 		          <div class="flex bullet-wrap " >
 		            <div class="hex-wrap waypoint" data-animation="flip-in-x" data-delay=".4s">
 		              <div class="hexagon">
-		                <i class="mdi mdi-lightbulb-outline"></i>
+		                <i class="mdi mdi-laptop-chromebook"></i>
 		              </div>
 		            </div>
 		            <div class="waypoint" data-animation="fade-in" data-delay=".4s">
 		              <div class="label bold">Interactive System</div>
-		              <div>Strong preference for easy to use, intuitive UX/UI.</div>
+		              <div>Intuitive UX/UI.</div>
 		            </div>
 		          </div>
 
 		          <div class="flex bullet-wrap " >
 		            <div class="hex-wrap waypoint" data-animation="flip-in-x" data-delay=".6s">
 		              <div class="hexagon">
-		                <i class="mdi mdi-rocket"></i>
+		                <i class="mdi mdi-android"></i>
 		              </div>
 		            </div>
 		            <div class="waypoint" data-animation="fade-in" data-delay=".6s">
 		              <div class="label bold">AI</div>
-		              <div>Websites don't have to be static, I love making pages come to life.</div>
+		              <div>Deep Learning</div>
 		            </div>
 		          </div>
 		        </div>
@@ -274,7 +276,7 @@
 		    
 	  	</section>
 
-	  	<section class="flex" id="portfolio">
+	  	<section class="flex" id="project">
 		    <div class="header waypoint" data-animation="slide-in-right">PROJECTS</div>
 		    <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".3s"></div>
 
@@ -304,7 +306,7 @@
 		            <div class="bold">Traffic Congestion Analysis</div>
 		            <span class="highlight">IEEE TVCG 2019</span>
 		          </div>
-		          <div class="button" id="walker">PDF</div>
+		          <div class="button" id="walker" OnClick="location.href ='file/TVCG2019.pdf'" style="cursor:pointer;">PDF</div>
 		        </div>
 		      </div>
 
@@ -315,7 +317,7 @@
 		            <div class="bold">Traffic Congestion Forecasting</div>
 		            <span class="highlight">Traffic Broadcasting Station</span>
 		          </div>
-		          <div class="button" id="mystand">LINK</div>
+		          <div class="button" id="mystand" OnClick="location.href ='http://road.unist.ac.kr'" style="cursor:pointer;">LINK</div>
 		        </div>
 		      </div>
 
@@ -364,8 +366,9 @@
 		        </div>
 		      </div>
 		    </div>
-		  </section>
-		  <section class="flex" id="publication">
+		</section>
+
+		<section class="flex" id="publication">
 		    <div class="header waypoint" data-animation="slide-in-left" >PUBLICATION</div>
 		    <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
 
@@ -383,8 +386,8 @@
                             <div class="content">
                             	<h4>A Visual Analytics System for Exploring, Monitoring, and Forecasting Road Traffic Congestion</h4>
                                 <p>C. Lee, Y. Kim, S. Jin, D. Kim, R. Maciejewski, D. Ebert, and S. Ko</p> <br>
-                                <p>IEEE transactions on visualization and computer graphics (TVCG IF=3.78), 2019 (Proc. IEEE VIS'19), Accepted.</p>
-                                <p>PDF</p>
+                                <p> IEEE transactions on visualization and computer graphics (<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945">TVCG</a> IF=3.78), 2019, Accepted. Invited (Proc. <a href="http://ieeevis.org/year/2019/welcome">IEEE VIS'19</a>) [<a href="https://chungyi347.github.io/file/TVCG2019.pdf">PDF</a>] [<a href="https://ieeexplore.ieee.org/document/8735916">LINK</a>] [<a href="http://imnews.imbc.com/replay/2019/nwtoday/article/5399183_24616.html">NEWS1</a>] [<a href="http://news.kbs.co.kr/news/view.do?ncd=4238637&ref=A">NEWS2</a>] [<a href="https://news.sbs.co.kr/news/endPage.do?news_id=N1005344664&plink=ORI&cooper=NAVER&plink=COPYPASTE&cooper=SBSNEWSEND">NEWS3</a>]  [<a href="file/190114Forecast.WAV">Audio</a>] 
+                                </p>
                             </div>
                         </div>
 
@@ -395,7 +398,8 @@
                             <div class="content">
                                 <h4>System Architecture for Progressive Augmented Reality.</h4>
                                 <p>Y. Han, C. Lee, S. Kim, and S. Ko</p> <br>
-                                <p>Proceedings of the 17th Annual International Conference on Mobile Systems, Applications, and Services (MobiSys'19), 2019, Accepted (Poster)</p>
+                                <p>In Proceedings of the 17th Annual International
+Conference on Mobile Systems, Applications, and Services (<a href="https://www.sigmobile.org/mobisys/2019/">MobiSys'19</a>), 2019, Accepted (Poster) [<a href="https://chungyi347.github.io/file/mobisyshan2019.pdf">PDF</a>] [<a href="https://dl.acm.org/citation.cfm?id=3328605">LINK</a>] </p>
                             </div>
                         </div>
 
@@ -406,7 +410,8 @@
                             <div class="content">
                                 <h4>Modeling Exploration/Exploitation Decisions through Mobile Sensing for Understanding Mechanisms of Addiction.</h4>
                                 <p>K. Kim, S. Kim, C. Lee, and S. Ko</p> <br>
-                                <p>In Proceedings of the 17th Annual International Conference on Mobile Systems, Applications, and Services (MobiSys'19), 2019, Accepted (Poster)</p>
+                                <p>In Proceedings of the 17th Annual International
+Conference on Mobile Systems, Applications, and Services (<a href="https://www.sigmobile.org/mobisys/2019/">MobiSys'19</a>), 2019, Accepted (Poster) [<a href="https://dl.acm.org/citation.cfm?id=3328599">LINK</a>] [<a href="https://chungyi347.github.io/file/mobisyskim2019.pdf">PDF</a>]</p>
                             </div>
 	                    </div><!--.col-md-6-->
 	                </div>
@@ -461,8 +466,7 @@
                             <div class="content">
                             	<h4>Visualization based Deep Learning Analysis Technology.</h4>
                                 <p>J. Lee, K. Kim, C. Lee, and S. Ko</p> <br>
-                                <p>The Korean Society for Noise and Vibration Engineering (KSNVE), 2017, Accepted</p>
-                                <p>PDF</p>
+                                <p>The Korean Society for Noise and Vibration Engineering (<a href="http://www.ksnve.or.kr/english/">KSNVE</a>), 2017, Accepted [<a href="http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07266060&language=ko_KR5">LINK</a>] [<a href="https://chungyi347.github.io/file/ksnvelee2017.pdf">PDF</a>]</p>
                             </div>
                         </div>
 
@@ -473,17 +477,16 @@
                             <div class="content">
                                 <h4>Introdcution of Visual Analytics.</h4>
                                 <p>Y. Oh, C. Lee, J. Oh, J. Yang, H. Gwag, S. Moon, S. Park, and S. Ko</p> <br>
-                                <p>Korea Computer Graphics Society, 2016, Accepted</p>
-                                <p>PDF</p>
+                                <p>Korea Computer Graphics Society, 2016, Accepted [<a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07068724&language=ko_KR">LINK</a>] [<a href="https://chungyi347.github.io/file/kcgsoh2016.pdf">PDF</a>] </p>
                             </div>
                         </div>
                     </div><!--.col-md-6-->
                 </div>
             </div>
 
-	     </section>
+	    </section>
 
-	     <section id="contact">
+	    <section id="contact">
 		    <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
 		      <path d="M0 0 L50 100 L100 0 Z" fill="white" stroke="white"></path>
 		    </svg>
@@ -501,7 +504,7 @@
 		        <input class="button" type="submit" id="submit" value=SUBMIT>
 		      </form>
 		    </div>
-		  </section>
+		</section>
 
 		  <footer>
 		    <i class="mdi mdi-chevron-double-up page-link" dest="home"></i>
@@ -522,9 +525,9 @@
 		          <i class="mdi mdi-instagram"></i>
 		        </div>
 		      </a>
-		      <a href="http://codepen.io/">
+		      <a href="https://github.com/chungyi347">
 		        <div class="flex icon" id="icon-5">
-		          <i class="mdi mdi-codepen"></i>
+		          <i class="mdi mdi-github-circle"></i>
 		        </div>
 		      </a>
 		    </div>

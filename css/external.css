@@ -49,7 +49,7 @@ img.full_width {
 a, a:hover, a:focus {
     text-decoration: none;
     outline: none;
-    color: inherit;
+    color: #337ab7;
 }
 
 .btn,

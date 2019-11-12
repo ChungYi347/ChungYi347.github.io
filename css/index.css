@@ -149,6 +149,7 @@ body {
 .hexagon {
   background-color: #04C2C9;
   height: 100%;
+
   width: calc(100% * 0.57735);
   display: inline-block; }
 
@@ -690,7 +691,8 @@ section {
     color: #fff;
     padding-top: 175px; }
     section:nth-of-type(5) .header {
-      color: #fff; }
+      color: #fff; 
+      }
     section:nth-of-type(5) .header-bar {
       margin: 25px 0 40px 0;
       background: #fff;
@@ -817,7 +819,8 @@ footer {
     padding: 0 20px; }
 
   .header {
-    font-size: 30pt; }
+    font-size: 30pt; 
+    margin-top: 40px;}
 
   .header-bar {
     margin: 25px 0 20px 0; }
