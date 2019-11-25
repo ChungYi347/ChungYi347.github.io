@@ -169,3 +169,14 @@ $(function() {
   })
 
 });
+
+var images = new Array(); 
+function preload() { 
+  for (i = 0; i < preload.arguments.length; i++) { 
+    images[i] = new Image(); 
+    images[i].src = preload.arguments[i]; 
+  } 
+} 
+preload( "img/me.png", "img/thumb-1.png", "img/thumb-2.png", "img/thumb-3.png", "img/thumb-4.png", "img/thumb-5.png", "img/thumb-6.png"); 
+
+
