@@ -47,7 +47,7 @@
 
 	    <section class="flex" id="about">
 		    <div class="header waypoint" data-animation="slide-in-left" >ABOUT</div>
-		    <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
+		    <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".6s"></div>
 	     
 		    <div class="flex row label-wrap">
 		        <div class="flex row-gt-sm">
@@ -103,7 +103,7 @@
 		      </div>
 
 	        <div class="flex skills-wrapper row">
-	        	<div class="flex flex-50-gt-sm waypoint" data-animation="slide-in-left">
+	        	<div class="flex flex-50-gt-sm waypoint" data-animation="slide-in-left" data-delay=".2s">
 		          <img src="img/me.png" class="me">
 		          <!-- <div><img class="up-arrow" src="img/up-arrow.png"></div> -->
 		          
@@ -121,7 +121,7 @@
 
 		    <div class="skills-wrapper flex row-gt-sm">
 		          <!--<div class="row">-->
-		          	<div class="waypoint" data-animation="slide-in-left">
+		          	<div class="waypoint" data-animation="slide-in-left" data-delay=".2s">
                     <!--Education-->
 	                    <div class="col">
 	                        <h3 class="subtitle">Education</h3>
@@ -150,7 +150,7 @@
 
 	                    </div><!--.col-md-6-->
 	                </div>
-	                <div class="waypoint" data-animation="slide-in-right">
+	                <div class="waypoint" data-animation="slide-in-right" data-delay=".2s">
 	                    <!--Experience-->
 	                    <div class="col sm-xs-margin-top-60">
 	                        <h3 class="subtitle">Experience</h3>
@@ -328,7 +328,8 @@
 		            <div class="bold">GUIComp</div>
 		            <span class="highlight">ACM CHI 2020</span>
 		          </div>
-		          <div class="button" id="roambi" OnClick="location.href = ''" style="cursor:pointer;">Preview Video</div>
+		          <div style="right:200px" class="button" id="roambi" OnClick="location.href = 'https://arxiv.org/abs/2001.05684'" style="cursor:pointer;">PDF</div>
+		          <div style="left:200px" class="button" id="roamb" OnClick="location.href = 'https://chungyi347.github.io/file/GUICompPreviewVideo.mp4'" style="cursor:pointer;">Preview Video</div>
 		        </div>
 		      </div>
 
@@ -370,13 +371,13 @@
 
 		<section class="flex" id="publication">
 		    <div class="header waypoint" data-animation="slide-in-left" >PUBLICATION</div>
-		    <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
+		    <div class="header-bar waypoint" data-animation="slide-in-left"></div>
 
-		    <div class="header waypoint" data-animation="slide-in-right" >INTERNALTIONAL CONFERENCE</div>
-		    <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".5s"></div>
+		    <div class="header waypoint" data-animation="slide-in-right" data-delay=".6s">INTERNALTIONAL CONFERENCE</div>
+		    <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".6s"></div>
 		    <div class="skills-wrapper flex row-gt-sm">
 		          <!--<div class="row">-->
-	          	<div class="waypoint" data-animation="slide-in-left">
+	          	<div class="waypoint" data-animation="slide-in-left" data-delay=".6s">
                 <!--Education-->
                     <div class="col">
                         <div class="pub">
@@ -385,8 +386,18 @@
                             </div>
                             <div class="content">
                             	<h4>GUIComp: A GUI Design Assistant with RealTime, MultiFaceted Feedback.</h4>
-                                <p>C. Lee, S. Kim, D. Han, H. Yang, Y. Park, B. Kwon, and S. Ko</p> <br>
-                                <p>ACM CHI Conference on Human Factors in Computing Systems (<a href="https://chi2020.acm.org/">CHI</a>), 2020, Accepted, [<a href="">PDF</a>] [<a href="">Preview Video</a>] [<a href="">Video</a>]</p>
+                                <p><b style='color:black'>C. Lee</b>, S. Kim, D. Han, H. Yang, Y. Park, B. Kwon, and S. Ko</p> <br>
+                                <p>ACM CHI Conference on Human Factors in Computing Systems (<a href="https://chi2020.acm.org/">CHI</a>), 2020, Accepted, [<a href="https://arxiv.org/abs/2001.05684">PDF</a>] [<a href="https://chungyi347.github.io/file/GUICompPreviewVideo.mp4">Preview Video</a>] [<a href="https://chungyi347.github.io/file/GUICompVideo.mp4">Video</a>]</p>
+                            </div>
+                        </div>
+                        <div class="pub">
+                            <div class="date">
+                                <i class="fa fa-calendar"></i> <span>2019 - 2019</span>
+                            </div>
+                            <div class="content">
+                            	<h4>STGRAT: A Spatio-Temporal Graph Attention Network for Traffic Forecasting</h4>
+                                <p>C. Park, <b style='color:black'>C. Lee</b>, H. Bahng, T. Won, K. Kim, S. Jin, S. Ko, and J. Choo</p> <br>
+                                <p>ArXiv [<a href="https://arxiv.org/abs/1911.13181">PDF</a>] </p>
                             </div>
                         </div>
                         <div class="pub">
@@ -395,7 +406,7 @@
                             </div>
                             <div class="content">
                             	<h4>A Visual Analytics System for Exploring, Monitoring, and Forecasting Road Traffic Congestion</h4>
-                                <p>C. Lee, Y. Kim, S. Jin, D. Kim, R. Maciejewski, D. Ebert, and S. Ko</p> <br>
+                                <p><b style='color:black'>C. Lee</b>, Y. Kim, S. Jin, D. Kim, R. Maciejewski, D. Ebert, and S. Ko</p> <br>
                                 <p> IEEE transactions on visualization and computer graphics (<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945">TVCG</a> IF=3.78), 2019, Accepted. Invited (Proc. <a href="http://ieeevis.org/year/2019/welcome">IEEE VIS'19</a>) [<a href="https://chungyi347.github.io/file/TVCG2019.pdf">PDF</a>] [<a href="https://ieeexplore.ieee.org/document/8735916">LINK</a>] [<a href="http://imnews.imbc.com/replay/2019/nwtoday/article/5399183_24616.html">NEWS1</a>] [<a href="http://news.kbs.co.kr/news/view.do?ncd=4238637&ref=A">NEWS2</a>] [<a href="https://news.sbs.co.kr/news/endPage.do?news_id=N1005344664&plink=ORI&cooper=NAVER&plink=COPYPASTE&cooper=SBSNEWSEND">NEWS3</a>]  [<a href="file/190114Forecast.WAV">Audio</a>] 
                                 </p>
                             </div>
@@ -407,7 +418,7 @@
                             </div>
                             <div class="content">
                                 <h4>System Architecture for Progressive Augmented Reality.</h4>
-                                <p>Y. Han, C. Lee, S. Kim, and S. Ko</p> <br>
+                                <p>Y. Han, <b style='color:black'>C. Lee</b>, S. Kim, and S. Ko</p> <br>
                                 <p>In Proceedings of the 17th Annual International
 Conference on Mobile Systems, Applications, and Services (<a href="https://www.sigmobile.org/mobisys/2019/">MobiSys'19</a>), 2019, Accepted (Poster) [<a href="https://chungyi347.github.io/file/mobisyshan2019.pdf">PDF</a>] [<a href="https://dl.acm.org/citation.cfm?id=3328605">LINK</a>] </p>
                             </div>
@@ -419,7 +430,7 @@ Conference on Mobile Systems, Applications, and Services (<a href="https://www.s
                             </div>
                             <div class="content">
                                 <h4>Modeling Exploration/Exploitation Decisions through Mobile Sensing for Understanding Mechanisms of Addiction.</h4>
-                                <p>K. Kim, S. Kim, C. Lee, and S. Ko</p> <br>
+                                <p>K. Kim, S. Kim, <b style='color:black'>C. Lee</b>, and S. Ko</p> <br>
                                 <p>In Proceedings of the 17th Annual International
 Conference on Mobile Systems, Applications, and Services (<a href="https://www.sigmobile.org/mobisys/2019/">MobiSys'19</a>), 2019, Accepted (Poster) [<a href="https://dl.acm.org/citation.cfm?id=3328599">LINK</a>] [<a href="https://chungyi347.github.io/file/mobisyskim2019.pdf">PDF</a>]</p>
                             </div>
@@ -427,12 +438,12 @@ Conference on Mobile Systems, Applications, and Services (<a href="https://www.s
 	                </div>
                 </div>
             </div>
-		    <div class="header waypoint" data-animation="slide-in-left" >SUBMITTED</div>
-		    <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
+		    <div class="header waypoint" data-animation="slide-in-left" data-delay=".8s">SUBMITTED</div>
+		    <div class="header-bar waypoint" data-animation="slide-in-left" data-delay="0.8s"></div>
 
 		    <div class="skills-wrapper flex row-gt-sm">
 		          <!--<div class="row">-->
-	          	<div class="waypoint" data-animation="slide-in-left">
+	          	<div class="waypoint" data-animation="slide-in-left" data-delay="0.8s">
                 <!--Education-->
                     <div class="col">
                         <div class="pub">
@@ -441,20 +452,20 @@ Conference on Mobile Systems, Applications, and Services (<a href="https://www.s
                             </div>
                             <div class="content">
                                 <h4>An Empirical Study on Multiple Coordinated Views with Visualization Duplication.</h4>
-                                <p>J. Oh, C. Lee, K. Kim, H. Kim, O. Kwon, E. Ragan, B. Kwon, and S. Ko</p> <br>
-                                <p>Submitted, IEEE TVCG</p>
+                                <p>J. Oh, <b style='color:black'>C. Lee</b>, K. Kim, H. Kim, O. Kwon, E. Ragan, B. Kwon, and S. Ko</p> <br>
+                                <p>Submitted</p>
                             </div>
                         </div>
                     </div><!--.col-md-6-->
                 </div>
             </div>
 
-		    <div class="header waypoint" data-animation="slide-in-right" >DOMESTIC CONFERENCE</div>
-		    <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".5s"></div>
+		    <div class="header waypoint" data-animation="slide-in-right" data-delay="0.8s">DOMESTIC CONFERENCE</div>
+		    <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".8s"></div>
 
 		    <div class="skills-wrapper flex row-gt-sm">
 		          <!--<div class="row">-->
-	          	<div class="waypoint" data-animation="slide-in-left">
+	          	<div class="waypoint" data-animation="slide-in-left" data-delay=".8s">
                 <!--Education-->
                     <div class="col">
                         <div class="pub">
@@ -463,7 +474,7 @@ Conference on Mobile Systems, Applications, and Services (<a href="https://www.s
                             </div>
                             <div class="content">
                             	<h4>Visualization based Deep Learning Analysis Technology.</h4>
-                                <p>J. Lee, K. Kim, C. Lee, and S. Ko</p> <br>
+                                <p>J. Lee, K. Kim, <b style='color:black'>C. Lee</b>, and S. Ko</p> <br>
                                 <p>The Korean Society for Noise and Vibration Engineering (<a href="http://www.ksnve.or.kr/english/">KSNVE</a>), 2017, Accepted [<a href="http://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07266060&language=ko_KR5">LINK</a>] [<a href="https://chungyi347.github.io/file/ksnvelee2017.pdf">PDF</a>]</p>
                             </div>
                         </div>
@@ -474,7 +485,7 @@ Conference on Mobile Systems, Applications, and Services (<a href="https://www.s
                             </div>
                             <div class="content">
                                 <h4>Introdcution of Visual Analytics.</h4>
-                                <p>Y. Oh, C. Lee, J. Oh, J. Yang, H. Gwag, S. Moon, S. Park, and S. Ko</p> <br>
+                                <p>Y. Oh, <b style='color:black'>C. Lee</b>, J. Oh, J. Yang, H. Gwag, S. Moon, S. Park, and S. Ko</p> <br>
                                 <p>Korea Computer Graphics Society, 2016, Accepted [<a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07068724&language=ko_KR">LINK</a>] [<a href="https://chungyi347.github.io/file/kcgsoh2016.pdf">PDF</a>] </p>
                             </div>
                         </div>

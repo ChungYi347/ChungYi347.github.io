@@ -52,8 +52,7 @@ $(function() {
     /*
     if (pos2 > $('#blog').offset().top)       { highlightLink('blog'); }
     */
-    if (pos2 > $('#contact').offset().top ||
-        pos + $(window).height() === $(document).height()) {
+    if (pos2 > $('#contact').offset().top) {
           highlightLink('contact');
     }
 
@@ -124,7 +123,7 @@ $(function() {
 
   // SCROLL ANIMATIONS
   function onScrollInit( items, elemTrigger ) {
-    var offset = $(window).height() / 5;
+    var offset = $(window).height() / 10;
     items.each( function() {
       var elem = $(this),
           animationClass = elem.attr('data-animation'),
@@ -138,6 +137,7 @@ $(function() {
 
           var trigger = (elemTrigger) ? trigger : elem;
           trigger.waypoint(function() {
+            console.log('way')
             elem.addClass('animated').addClass(animationClass);
             if (elem.get(0).id === 'gallery') mixClear(); //OPTIONAL
             },{
@@ -147,7 +147,7 @@ $(function() {
     });
   }
 
-  setTimeout(function() { onScrollInit($('.waypoint')) }, 10);
+  setTimeout(function() { onScrollInit($('.waypoint')) }, 100);
 
   // CONTACT FORM
   $('#contact-form').submit(function(e) {
