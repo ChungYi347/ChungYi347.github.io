@@ -23,9 +23,9 @@ const Footer = () => {
   return (
     <footer css={[footerStyle]}>
       <nav>
-        <div>{new Date().getFullYear()} &copy; your copyright</div>
+        <div>{new Date().getFullYear()} &copy; Chunggi Lee</div>
         <div>
-          <a href="https://github.com/ofnullable/react-spa-template" rel="noopener noreferrer" target="_blank">
+          <a href="https://github.com/ChungYi347/ChungYi347.github.io" rel="noopener noreferrer" target="_blank">
             <GithubIcon className="github" />
           </a>
         </div>

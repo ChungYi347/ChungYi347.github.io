@@ -1,19 +1,20 @@
 import React from 'react';
 import { css } from '@emotion/react';
 
-const HomePageStyle = css`
-  h1 {
-    font-size: 5rem;
-    font-weight: 600;
-    text-align: center;
-  }
-`;
+import AboutPage from './AboutPage';
+import PublicationPage from './PublicationsPage';
+import PorjectPage from './ProjectPage';
+
+import { useThemeContext } from '../contexts/ThemeContext';
 
 const HomePage = () => {
+  const { refs } = useThemeContext();
   return (
-    <div css={[HomePageStyle]}>
-      <h1 className="title">Hello React!</h1>
-    </div>
+    <>
+      <AboutPage ref={refs['ABOUT']} />
+      <PublicationPage ref={refs['PUBLICATIONS']} />
+      <PorjectPage ref={refs['PROJECTS']} />
+    </>
   );
 };
 

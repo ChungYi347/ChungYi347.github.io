@@ -61,6 +61,17 @@ module.exports = {
         test: /\.svg$/,
         use: [loaders.svg, loaders.url],
       },
+      {
+        test: /\.pdf$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [

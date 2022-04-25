@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import React, { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react';
 import { Storage } from '../common';
 
 const Context = createContext();
@@ -53,6 +53,8 @@ const themes = { light, dark };
 
 export default function ThemeContext({ children }) {
   const [theme, setTheme] = useState(getPreferColor());
+  const [open, setOpen] = useState(false);
+  const refs = { ABOUT: useRef(null), PUBLICATIONS: useRef(null), PROJECTS: useRef(null) };
 
   const isLight = useMemo(() => theme === 'light', [theme]);
 
@@ -66,5 +68,7 @@ export default function ThemeContext({ children }) {
     });
   }, []);
 
-  return <Context.Provider value={{ colors, theme, isLight, toggleTheme }}>{children}</Context.Provider>;
+  return (
+    <Context.Provider value={{ colors, theme, isLight, toggleTheme, open, setOpen, refs }}>{children}</Context.Provider>
+  );
 }

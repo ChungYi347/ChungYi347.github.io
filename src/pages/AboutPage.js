@@ -39,7 +39,7 @@ const ProfileText = ({ text, size }) => {
 const AboutPage = forwardRef((props, ref) => {
   return (
     <div ref={ref}>
-      <div css={{ 'margin-top': '60px' }} />
+      <div css={{ 'margin-top': '80px' }} />
       <Title text={'ABOUT'} width={'12%'} />
       <br />
 
