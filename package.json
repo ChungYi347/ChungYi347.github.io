@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "React Single Page App template without CRA",
   "main": "src/index.js",
-  "hompage": "https://ofnullable.github.io/react-spa-template",
-  "repository": "https://github.com/ofnullable/react-spa-template",
+  "hompage": "https://chungyi347.github.io",
+  "repository": "https://github.com/ChungYi347/ChungYi347.github.io",
   "author": "ofnullable <ofnullable@gmail.com>",
   "license": "MIT",
   "engines": {
@@ -12,7 +12,7 @@
     "npm": ">=6"
   },
   "bugs": {
-    "url": "http://github.com/ofnullable/react-spa-template/issues",
+    "url": "https://github.com/ChungYi347/ChungYi347.github.io/issues",
     "email": "ofnullable@gmail.com"
   },
   "scripts": {
