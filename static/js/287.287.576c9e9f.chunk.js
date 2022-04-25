@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkchunggi_lee_homepage=self.webpackChunkchunggi_lee_homepage||[]).push([[287],{287:function(e,t,n){n.r(t);n(294);var c=n(944);const l={name:"agvie1",styles:"h1{font-size:5rem;font-weight:600;text-align:center;}"};t.default=()=>(0,c.tZ)("div",{css:[l,"",""],children:(0,c.tZ)("h1",{className:"title",children:"Hello React!"})})}}]);
