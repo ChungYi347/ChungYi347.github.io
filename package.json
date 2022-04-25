@@ -1,7 +1,7 @@
 {
-  "name": "react-spa-template",
+  "name": "chunggi-lee-homepage",
   "version": "0.1.0",
-  "description": "React Single Page App template without CRA",
+  "description": "Chunggi Lee Homepage",
   "main": "src/index.js",
   "hompage": "https://chungyi347.github.io",
   "repository": "https://github.com/ChungYi347/ChungYi347.github.io",
