@@ -77,8 +77,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
-      template: 'index.html',
-      favicon: 'favicon.ico',
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico',
       minify: {
         collapseWhitespace: true,
       },
