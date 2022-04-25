@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "hompage": "https://chungyi347.github.io",
   "repository": "https://github.com/ChungYi347/ChungYi347.github.io",
-  "author": "ofnullable <ofnullable@gmail.com>",
+  "author": "Chunggi Lee <chungyi347@gmail.com>",
   "license": "MIT",
   "engines": {
     "node": ">=10",
@@ -13,7 +13,7 @@
   },
   "bugs": {
     "url": "https://github.com/ChungYi347/ChungYi347.github.io/issues",
-    "email": "ofnullable@gmail.com"
+    "email": "chungyi347@gmail.com"
   },
   "scripts": {
     "start": "NODE_ENV=development webpack serve --progress",
