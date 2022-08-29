@@ -19,8 +19,12 @@ const Educations = [
 
 const Experiences = [
   {
+    title: 'Naver Webtoon',
+    content: 'AI Applied Researcher, 2022~ \n (Alternative Military Service)',
+  },
+  {
     title: 'Lunit',
-    content: 'Research Engineer, 2020~ \n (Alternative Military Service)',
+    content: 'Research Engineer, 2020~2022 \n (Alternative Military Service)',
   },
   {
     title: 'iVADER Lab',
@@ -65,27 +69,27 @@ const AboutPage = forwardRef((props, ref) => {
                 src={me}
               />
               <ProfileText size={'h4'} text={'Chunggi Lee'} />
-              <ProfileText size={'h5'} text={'Lunit'} />
-              <ProfileText size={'h5'} text={'Research Engineer'} />
+              <ProfileText size={'h5'} text={'Naver Webtoon'} />
+              <ProfileText size={'h5'} text={'AI Applied Researcher'} />
             </Animate>
           </Grid>
 
           <Grid item lg>
             <Animate delay={0.3}>
               <Typography variant="h5">
-                Hello! I am Chunggi Lee, a Research Engineer at{' '}
-                <Link target="_blank" href="https://www.lunit.io">
-                  Lunit
+                Hello! I am Chunggi Lee, a AI Applied Researcher at{' '}
+                <Link target="_blank" href="https://www.webtoons.com/en/">
+                  Naver Webtoon
                 </Link>
-                . My work is to design and build interactive systems and techniques to gain more high quality pathology
-                data and make more accurate deep learning models in cell and tissue. I am also interested in visual
-                analytics and human-computer interaction, especially making interactive tools and techniques, and
-                data-driven applications with deep learning. I received B.S. and M.S. degrees in the computer science
-                department at{' '}
+                . My work is not only to understand the process of webtoon creation, but also to help the users to
+                enhance their ability effectively by building a Human AI Interaction (HAI) through deep learning. I am
+                also interested in visual analytics and human-computer interaction, especially making interactive tools
+                and techniques, and data-driven applications with deep learning. I received B.S. and M.S. degrees in the
+                computer science department at{' '}
                 <Link target="_blank" href="https://www.unist.ac.kr">
                   Ulsan National Institute of Science and Technology (UNIST)
                 </Link>
-                . I worked with Sungahn Ko in the{' '}
+                . I worked with Prof. Sungahn Ko in the{' '}
                 <Link target="_blank" href="https://ivader.unist.ac.kr/">
                   Interactive Visual Analysis and Data Exploration Research (iVADER) Lab
                 </Link>

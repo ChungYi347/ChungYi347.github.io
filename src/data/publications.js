@@ -1,4 +1,5 @@
 import CVPR2022 from '../assets/images/CVPR2022.png';
+import ECCVW2022 from '../assets/images/ECCVW2022.png';
 import CHI2020 from '../assets/images/CHI2020.png';
 import CIKM2020 from '../assets/images/CIKM2020.png';
 import TVCG2019 from '../assets/images/TVCG2019.png';
@@ -9,6 +10,13 @@ import TVCG2019PDF from '../assets/pdfs/TVCG2019.pdf';
 
 const pubs = [
   {
+    title: 'Variability Matters : Evaluating inter-rater variability in histopathology for robust cell detection.',
+    author: 'Cholmin Kang, Chunggi Lee, Heon Song, Minuk Ma, S ́ergioPereira',
+    conference: 'European Conference on Computer Vision Workshop (ECCVW), 2022, Accepted ',
+    image: ECCVW2022,
+    tags: [{ tag: '[TBA]', link: '' }],
+  },
+  {
     title: 'Interactive Multi-Class Tiny-Object Detection.',
     author:
       'Chunggi Lee, Seonwook Park, Heon Song, Jeongun Ryu, Sanghoon Kim, Haejoon Kim, Sergio Pereira, Donggeun Yoo',
@@ -17,6 +25,7 @@ const pubs = [
     tags: [
       { tag: '[PDF]', link: 'https://arxiv.org/abs/2203.15266' },
       { tag: '[Video]', link: 'https://vimeo.com/700148797' },
+      { tag: '[Github]', link: 'https://github.com/ChungYi347/Interactive-Multi-Class-Tiny-Object-Detection' },
     ],
   },
   {

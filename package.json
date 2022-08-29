@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Chunggi Lee Homepage",
   "main": "src/index.js",
-  "hompage": "https://chungyi347.github.io",
+  "homepage": "https://chungyi347.github.io",
   "repository": "https://github.com/ChungYi347/ChungYi347.github.io",
   "author": "Chunggi Lee <chungyi347@gmail.com>",
   "license": "MIT",
