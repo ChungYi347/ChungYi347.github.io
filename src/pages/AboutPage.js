@@ -81,11 +81,12 @@ const AboutPage = forwardRef((props, ref) => {
                 <Link target="_blank" href="https://www.webtoons.com/en/">
                   Naver Webtoon
                 </Link>
-                . My work is not only to understand the process of webtoon creation, but also to help the users to
-                enhance their ability effectively by building a Human AI Interaction (HAI) through deep learning. I am
-                also interested in visual analytics and human-computer interaction, especially making interactive tools
-                and techniques, and data-driven applications with deep learning. I received B.S. and M.S. degrees in the
-                computer science department at{' '}
+                .
+                {/* My work is not only to understand the process of webtoon creation, but also to help the users to */}
+                {/* enhance their ability effectively by building a Human AI Interaction (HAI) through deep learning.  */}
+                I am interested in Human AI Interaction (HAI) and making interactive tools and techniques, and
+                data-driven applications with deep learning. I received B.S. and M.S. degrees in the computer science
+                department at{' '}
                 <Link target="_blank" href="https://www.unist.ac.kr">
                   Ulsan National Institute of Science and Technology (UNIST)
                 </Link>

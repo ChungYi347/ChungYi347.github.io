@@ -8,7 +8,7 @@ import { ReactComponent as SunIcon } from '../assets/sun.svg';
 import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 import { Typography } from '@mui/material';
 
-import CVPDF from '../assets/pdfs/Chunggi_Lee_CV_20220425.pdf';
+import CVPDF from '../assets/pdfs/Chunggi_Lee_CV.pdf';
 
 const headerStyle = (colors, isLight) => css`
   height: 60px;
