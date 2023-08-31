@@ -88,7 +88,7 @@ const Header = () => {
           elem['name'] === 'CV' ? (
             <Typography
               onClick={() => refs[elem['name']].current.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-              variant="h5"
+              variant="h6"
               color={isLight ? 'black' : 'white'}
             >
               <a href={CVPDF} target="_blank">
@@ -98,7 +98,7 @@ const Header = () => {
           ) : (
             <Typography
               onClick={() => refs[elem['name']].current.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-              variant="h5"
+              variant="h6"
               color={isLight ? 'black' : 'white'}
             >
               <Link to={elem['link']}>{elem['name']}</Link>

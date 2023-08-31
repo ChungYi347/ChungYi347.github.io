@@ -8,6 +8,10 @@ import Animate from '../components/Animate';
 
 const Educations = [
   {
+    title: 'Harvard University',
+    content: 'Ph.D Student in Computer Science, 2023~Now',
+  },
+  {
     title: 'Ulsan National Institute of Science and Technology (UNIST)',
     content: 'M.S in Computer Science and Engineering, 2018~2020',
   },
@@ -20,11 +24,13 @@ const Educations = [
 const Experiences = [
   {
     title: 'Naver Webtoon',
-    content: 'AI Applied Researcher, 2022~ \n (Alternative Military Service)',
+    // content: 'AI Applied Researcher, 2022~ \n (Alternative Military Service)',
+    content: 'AI Applied Researcher, 2022~2023',
   },
   {
     title: 'Lunit',
-    content: 'Research Engineer, 2020~2022 \n (Alternative Military Service)',
+    // content: 'Research Engineer, 2020~2022 \n (Alternative Military Service)',
+    content: 'Research Engineer, 2020~2022',
   },
   {
     title: 'iVADER Lab',
@@ -68,44 +74,54 @@ const AboutPage = forwardRef((props, ref) => {
                 }}
                 src={me}
               />
-              <ProfileText size={'h4'} text={'Chunggi Lee'} />
-              <ProfileText size={'h5'} text={'Naver Webtoon'} />
-              <ProfileText size={'h5'} text={'AI Applied Researcher'} />
+              <ProfileText size={'h5'} text={'Chunggi Lee'} />
+              <ProfileText size={'h6'} text={'Harvard University'} />
+              <ProfileText size={'h6'} text={'PhD Student'} />
             </Animate>
           </Grid>
 
-          <Grid item lg>
+          <Grid item lg >
             <Animate delay={0.3}>
-              <Typography variant="h5">
-                Hello! I am Chunggi Lee, a AI Applied Researcher at{' '}
-                <Link target="_blank" href="https://www.webtoons.com/en/">
-                  Naver Webtoon
+              <Typography variant="h6">
+                Hello! I am Chunggi Lee, a PhD student at {' '} <Link target="_blank" href="https://vcg.seas.harvard.edu/">
+                  Visual Computing Group
+                </Link> in {' '} 
+                  Harvard University
+                {' '}  with {' '}  
+                <Link target="_blank" href="https://www.harvard.edu/">
+                Prof. Hanspeter Pfister
                 </Link>
                 .
+                {' '}
                 {/* My work is not only to understand the process of webtoon creation, but also to help the users to */}
                 {/* enhance their ability effectively by building a Human AI Interaction (HAI) through deep learning.  */}
-                I am interested in Human AI Interaction (HAI) and making interactive tools and techniques, and
-                data-driven applications with deep learning. I received B.S. and M.S. degrees in the computer science
-                department at{' '}
-                <Link target="_blank" href="https://www.unist.ac.kr">
-                  Ulsan National Institute of Science and Technology (UNIST)
-                </Link>
-                . I worked with Prof. Sungahn Ko in the{' '}
-                <Link target="_blank" href="https://ivader.unist.ac.kr/">
-                  Interactive Visual Analysis and Data Exploration Research (iVADER) Lab
-                </Link>
-                .
+                My research focuses on Human-AI Interaction (HAI), involving the development of interactive tools and deep learning models capable of understanding users' intentions. 
+                My research goal is to enhance not only work productivity but also human capabilities beyond individual capacity. 
+                I earned my B.S. and M.S. degrees from the Computer Science department at {' '} <Link target="_blank" href="https://www.unist.ac.kr">
+                  UNIST
+                </Link>, where I worked with Prof. Sungahn Ko in the {' '} <Link target="_blank" href="https://ivader.unist.ac.kr/">
+                 iVADER Lab
+                </Link>. 
+                Prior to my PhD, I worked as an AI Applied Researcher at {' '}
+                <Link target="_blank" href="https://webtoonscorp.com/en/">
+                  Naver Webtoon
+                </Link> and  {' '} 
+                <Link target="_blank" href="https://lunit.io/">
+                  Lunit
+                </Link>  {' '} as part of my military service.
+                
               </Typography>
             </Animate>
             <Box
               sx={{
+                mt: "20px",
                 display: 'flex',
                 justifyContent: 'space-between',
               }}
             >
               <Animate delay={0.6}>
                 <Box>
-                  <Typography marginTop={2} variant="h4">
+                  <Typography marginTop={2} variant="h5">
                     Education
                   </Typography>
                   {Educations.map((elem) => (
@@ -115,7 +131,7 @@ const AboutPage = forwardRef((props, ref) => {
               </Animate>
               <Animate delay={0.6}>
                 <Box>
-                  <Typography marginTop={2} variant="h4">
+                  <Typography marginTop={2} variant="h5">
                     Work Experiences
                   </Typography>
                   {Experiences.map((elem) => (

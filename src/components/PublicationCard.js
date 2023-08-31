@@ -55,7 +55,7 @@ const PublicationCard = ({ media, title, author, conference, tags }) => {
           </motion.button>
 
           <CardContent>
-            <Typography color={primary} fontWeight={600} variant="h5">
+            <Typography color={primary} fontWeight={600} variant="h6">
               {title}
             </Typography>
             {makeTitle(author, isLight, primary, secondary)}

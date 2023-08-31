@@ -1,3 +1,5 @@
+import MM2023 from '../assets/images/MM2023.png'
+import TILDEQ from '../assets/images/TILDE2022.png'
 import CVPR2022 from '../assets/images/CVPR2022.png';
 import ECCVW2022 from '../assets/images/ECCVW2022.png';
 import CHI2020 from '../assets/images/CHI2020.png';
@@ -10,11 +12,25 @@ import TVCG2019PDF from '../assets/pdfs/TVCG2019.pdf';
 
 const pubs = [
   {
+    title: 'FlatGAN: A Holistic Approach for Robust Flat-Coloring in High-Definition with Understanding Line Discontinuity.',
+    author: 'Han Kim*, Chunggi Lee*, Junsoo Lee*, Dohyun Kim, Kwangjin Lee, Moohyun Oh, Daesik Kim',
+    conference: 'ACM Multimedia (MM), 2023, Accepted',
+    image: MM2023,
+    tags: [{ tag: '[TBA]', link: '' }],
+  },
+  {
+    title: 'TILDE-Q: A Transformation Invariant Loss Function for Time-Series Forecasting.',
+    author: 'Hyunwook Lee, Chunggi Lee, Hongkyu Lim, Sungahn Ko',
+    conference: 'Preprint',
+    image: TILDEQ,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/abs/2210.15050' }],
+  },
+  {
     title: 'Variability Matters : Evaluating inter-rater variability in histopathology for robust cell detection.',
     author: 'Cholmin Kang, Chunggi Lee, Heon Song, Minuk Ma, S ́ergioPereira',
     conference: 'European Conference on Computer Vision Workshop (ECCVW), 2022, Accepted ',
     image: ECCVW2022,
-    tags: [{ tag: '[TBA]', link: '' }],
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/abs/2210.05175' }],
   },
   {
     title: 'Interactive Multi-Class Tiny-Object Detection.',
