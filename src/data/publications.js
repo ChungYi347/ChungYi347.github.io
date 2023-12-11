@@ -1,5 +1,6 @@
-import MM2023 from '../assets/images/MM2023.png'
-import TILDEQ from '../assets/images/TILDE2022.png'
+import AAAI2024 from '../assets/images/AAAI2024.gif';
+import MM2023 from '../assets/images/MM2023.png';
+import TILDEQ from '../assets/images/TILDE2022.png';
 import CVPR2022 from '../assets/images/CVPR2022.png';
 import ECCVW2022 from '../assets/images/ECCVW2022.png';
 import CHI2020 from '../assets/images/CHI2020.png';
@@ -12,11 +13,19 @@ import TVCG2019PDF from '../assets/pdfs/TVCG2019.pdf';
 
 const pubs = [
   {
-    title: 'FlatGAN: A Holistic Approach for Robust Flat-Coloring in High-Definition with Understanding Line Discontinuity.',
+    title: 'DreamStyler: Paint by Style Inversion with Text-to-Image Diffusion Models.',
+    author: 'Namhyuk Ahn, Junsoo Lee, Chunggi Lee, Kunhee Kim, Daesik Kim, Seung-Hun Nam, Kibeom Hong',
+    conference: 'The Association for the Advancement of Artificial Intelligence (AAAI), 2024, Accepted',
+    image: AAAI2024,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2309.06933.pdf' }],
+  },
+  {
+    title:
+      'FlatGAN: A Holistic Approach for Robust Flat-Coloring in High-Definition with Understanding Line Discontinuity.',
     author: 'Han Kim*, Chunggi Lee*, Junsoo Lee*, Dohyun Kim, Kwangjin Lee, Moohyun Oh, Daesik Kim',
     conference: 'ACM Multimedia (MM), 2023, Accepted',
     image: MM2023,
-    tags: [{ tag: '[TBA]', link: '' }],
+    tags: [{ tag: '[PDF]', link: 'https://dl.acm.org/doi/10.1145/3581783.3613788' }],
   },
   {
     title: 'TILDE-Q: A Transformation Invariant Loss Function for Time-Series Forecasting.',
