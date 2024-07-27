@@ -1,3 +1,4 @@
+import VIS2024 from '../assets/images/VIS2024.png';
 import AAAI2024 from '../assets/images/AAAI2024.gif';
 import MM2023 from '../assets/images/MM2023.png';
 import TILDEQ from '../assets/images/TILDE2022.png';
@@ -12,6 +13,13 @@ import GenomeAnalysis2018 from '../assets/images/GenomeAnalysis2018.png';
 import TVCG2019PDF from '../assets/pdfs/TVCG2019.pdf';
 
 const pubs = [
+  {
+    title: 'Sportify: Question Answering with Embedded Visualizations and Personified Narratives for Sports Video.',
+    author: 'Chunggi Lee, Tica Lin, Hanspeter Pfister, Zhu-Tian Chen',
+    conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS).',
+    image: VIS2024,
+    tags: [{ tag: 'TBA ', link: '' }],
+  },
   {
     title: 'DreamStyler: Paint by Style Inversion with Text-to-Image Diffusion Models.',
     author: 'Namhyuk Ahn, Junsoo Lee, Chunggi Lee, Kunhee Kim, Daesik Kim, Seung-Hun Nam, Kibeom Hong',
