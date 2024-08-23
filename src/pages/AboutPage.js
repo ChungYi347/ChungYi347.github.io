@@ -80,41 +80,46 @@ const AboutPage = forwardRef((props, ref) => {
             </Animate>
           </Grid>
 
-          <Grid item lg >
+          <Grid item lg>
             <Animate delay={0.3}>
               <Typography variant="h6">
-                Hello! I am Chunggi Lee, a PhD student at {' '} <Link target="_blank" href="https://vcg.seas.harvard.edu/">
+                Hello! I am Chunggi Lee, a PhD student at{' '}
+                <Link target="_blank" href="https://vcg.seas.harvard.edu/">
                   Visual Computing Group
-                </Link> in {' '} 
-                  Harvard University
-                {' '}  with {' '}  
+                </Link>{' '}
+                in Harvard University with{' '}
                 <Link target="_blank" href="https://www.harvard.edu/">
-                Prof. Hanspeter Pfister
+                  Prof. Hanspeter Pfister
                 </Link>
-                .
-                {' '}
+                .{' '}
                 {/* My work is not only to understand the process of webtoon creation, but also to help the users to */}
                 {/* enhance their ability effectively by building a Human AI Interaction (HAI) through deep learning.  */}
-                My research focuses on Human-AI Interaction (HAI), involving the development of interactive tools and deep learning models capable of understanding users' intentions. 
-                My research goal is to enhance not only work productivity but also human capabilities beyond individual capacity. 
-                I earned my B.S. and M.S. degrees from the Computer Science department at {' '} <Link target="_blank" href="https://www.unist.ac.kr">
+                My research explores the intersection of Human-Computer Interaction (HCI), Visualization, and Computer
+                Vision. My primary goal is to transform real-world environments into immersive AR/VR experiences,
+                focusing on developing innovative applications and techniques. This work enhances user interaction and
+                engagement by leveraging computer vision techniques. I earned my B.S. and M.S. degrees from the Computer
+                Science department at{' '}
+                <Link target="_blank" href="https://www.unist.ac.kr">
                   UNIST
-                </Link>, where I worked with Prof. Sungahn Ko in the {' '} <Link target="_blank" href="https://ivader.unist.ac.kr/">
-                 iVADER Lab
-                </Link>. 
-                Prior to my PhD, I worked as an AI Applied Researcher at {' '}
+                </Link>
+                , where I worked with Prof. Sungahn Ko in the{' '}
+                <Link target="_blank" href="https://ivader.unist.ac.kr/">
+                  iVADER Lab
+                </Link>
+                . Prior to my PhD, I worked as an AI Applied Researcher at{' '}
                 <Link target="_blank" href="https://webtoonscorp.com/en/">
                   Naver Webtoon
-                </Link> and  {' '} 
+                </Link>{' '}
+                and{' '}
                 <Link target="_blank" href="https://lunit.io/">
                   Lunit
-                </Link>  {' '} as part of my military service.
-                
+                </Link>{' '}
+                as part of my military service.
               </Typography>
             </Animate>
             <Box
               sx={{
-                mt: "20px",
+                mt: '20px',
                 display: 'flex',
                 justifyContent: 'space-between',
               }}
