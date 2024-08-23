@@ -15,7 +15,7 @@ import TVCG2019PDF from '../assets/pdfs/TVCG2019.pdf';
 const pubs = [
   {
     title: 'Sportify: Question Answering with Embedded Visualizations and Personified Narratives for Sports Video.',
-    author: 'Chunggi Lee, Tica Lin, Hanspeter Pfister, Zhu-Tian Chen',
+    author: 'Chunggi Lee, Tica Lin, Hanspeter Pfister, Chen Zhu-Tian',
     conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS).',
     image: VIS2024,
     tags: [{ tag: 'TBA ', link: '' }],
