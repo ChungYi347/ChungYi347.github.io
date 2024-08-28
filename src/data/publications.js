@@ -1,4 +1,4 @@
-import VIS2024 from '../assets/images/VIS2024.png';
+import VIS2024 from '../assets/images/VIS2024.gif';
 import AAAI2024 from '../assets/images/AAAI2024.gif';
 import MM2023 from '../assets/images/MM2023.png';
 import TILDEQ from '../assets/images/TILDE2022.png';
@@ -18,7 +18,7 @@ const pubs = [
     author: 'Chunggi Lee, Tica Lin, Hanspeter Pfister, Chen Zhu-Tian',
     conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS).',
     image: VIS2024,
-    tags: [{ tag: 'TBA ', link: '' }],
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/abs/2408.05123' }],
   },
   {
     title: 'DreamStyler: Paint by Style Inversion with Text-to-Image Diffusion Models.',
