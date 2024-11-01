@@ -18,14 +18,16 @@ const pubs = [
     author: 'Chunggi Lee, Tica Lin, Hanspeter Pfister, Chen Zhu-Tian',
     conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS).',
     image: VIS2024,
-    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/abs/2408.05123' }],
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/abs/2408.05123' }, {tag: '[Webpage]', link: 'https://chungyi347.github.io/Sportify/'}],
   },
   {
     title: 'DreamStyler: Paint by Style Inversion with Text-to-Image Diffusion Models.',
     author: 'Namhyuk Ahn, Junsoo Lee, Chunggi Lee, Kunhee Kim, Daesik Kim, Seung-Hun Nam, Kibeom Hong',
     conference: 'The Association for the Advancement of Artificial Intelligence (AAAI), 2024, Accepted',
     image: AAAI2024,
-    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2309.06933.pdf' }],
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2309.06933.pdf' }, 
+      {tag: '[Webpage]', link: 'https://nmhkahn.github.io/dreamstyler/'}, 
+      {tag: '[Code]', link: 'https://github.com/webtoon/dreamstyler'}],
   },
   {
     title:
