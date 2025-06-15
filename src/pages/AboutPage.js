@@ -38,6 +38,30 @@ const Experiences = [
   },
 ];
 
+const NewsItems = [
+  {
+    date: '2025.06',
+    content: 'Gave a seminar talk at Korea University.',
+  },
+  {
+    date: '2025.04',
+    content: 'Submitted a paper to ACM UIST 2025.',
+  },
+  {
+    date: '2024.10',
+    content: 'Presented "Sportify" at IEEE VIS 2024.',
+  },
+  {
+    date: '2024.03',
+    content: 'Submitted a paper to IEEE VIS 2024.',
+  },
+  {
+    date: '2023.09',
+    content: 'Started Ph.D. program at Harvard University.',
+  },
+];
+
+
 const ProfileText = ({ text, size }) => {
   return (
     <Typography align="center" variant={size}>
@@ -83,38 +107,29 @@ const AboutPage = forwardRef((props, ref) => {
           <Grid item lg>
             <Animate delay={0.3}>
               <Typography variant="h6">
-                Hello! I am Chunggi Lee, a PhD student at{' '}
+                Hello! I am Chunggi Lee, a PhD student 
+                {/* at{' '}
                 <Link target="_blank" href="https://vcg.seas.harvard.edu/">
                   Visual Computing Group
-                </Link>{' '}
-                in Harvard University with{' '}
-                <Link target="_blank" href="https://www.harvard.edu/">
+                </Link>{' '} */}
+                {' '} in <Link target="_blank" href="https://www.harvard.edu/">
+                  Harvard University
+                </Link>,
+                under the supervision of{' '}
+                <Link target="_blank" href="https://vcg.seas.harvard.edu/people">
                   Prof. Hanspeter Pfister
                 </Link>
-                .{' '}
-                {/* My work is not only to understand the process of webtoon creation, but also to help the users to */}
-                {/* enhance their ability effectively by building a Human AI Interaction (HAI) through deep learning.  */}
-                My research explores the intersection of Human-Computer Interaction (HCI), Visualization, and Computer
-                Vision. My primary goal is to transform real-world environments into immersive AR/VR experiences,
-                focusing on developing innovative applications and techniques. This work enhances user interaction and
-                engagement by leveraging computer vision techniques. I earned my B.S. and M.S. degrees from the Computer
-                Science department at{' '}
-                <Link target="_blank" href="https://www.unist.ac.kr">
-                  UNIST
-                </Link>
-                , where I worked with Prof. Sungahn Ko in the{' '}
-                <Link target="_blank" href="https://ivader.unist.ac.kr/">
-                  iVADER Lab
-                </Link>
-                . Prior to my PhD, I worked as an AI Applied Researcher at{' '}
-                <Link target="_blank" href="https://webtoonscorp.com/en/">
-                  Naver Webtoon
-                </Link>{' '}
-                and{' '}
-                <Link target="_blank" href="https://lunit.io/">
-                  Lunit
-                </Link>{' '}
-                as part of my military service.
+                . My work lies at the intersection of Human-Computer Interaction (HCI), Visualization, and Computer Vision, aiming to
+                bridge physical and virtual spaces through motion-centric experiences.
+                My research focuses on XR (AR/VR), particularly on human motion understanding and its applications to creating new
+                immersive experiences and situated visualizations. I develop systems that reconstruct human motion from videos using
+                computer vision techniques and integrate them into interactive XR environments.
+                I earned my B.S. and M.S. degrees from the Computer Science department at{' '}
+                <Link target="_blank" href="https://www.unist.ac.kr">UNIST</Link>, where I worked with Prof. Sungahn Ko in the{' '}
+                <Link target="_blank" href="https://ivader.unist.ac.kr/">iVADER Lab</Link>. Prior to my PhD, I worked as an AI Applied
+                Researcher at{' '}
+                <Link target="_blank" href="https://webtoonscorp.com/en/">Naver Webtoon</Link> and{' '}
+                <Link target="_blank" href="https://lunit.io/">Lunit</Link> as part of my military service.
               </Typography>
             </Animate>
             <Box
@@ -145,8 +160,50 @@ const AboutPage = forwardRef((props, ref) => {
                 </Box>
               </Animate>
             </Box>
+            
+            <Box sx={{ mt: 6 }}>
+              <Animate delay={0.6}>
+                <Typography variant="h5" gutterBottom>
+                  News
+                </Typography>
+
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    mt: 1,
+                    maxHeight: 160, // 원하는 높이
+                    overflowY: 'auto',
+                    pr: 1,
+                  }}
+                >
+                  {NewsItems.map((news, idx) => (
+                    <Box
+                      key={idx}
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'flex-start',
+                        mb: 1,
+                      }}
+                    >
+                      <Typography
+                        variant="h6"
+                        sx={{ fontWeight: 500, mr: 1, whiteSpace: 'nowrap', minWidth: '70px' }}
+                        color="textSecondary"
+                      >
+                        {news.date}
+                      </Typography>
+                      <Typography variant="h6">{news.content}</Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </Animate>
+            </Box>
+
           </Grid>
         </Grid>
+        
       </Box>
     </div>
   );
