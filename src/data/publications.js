@@ -18,7 +18,7 @@ const pubs = [
   {
     title: 'BRIDGE: Borderless Reconfiguration for Inclusive and Diverse Gameplay Experience via Embodiment Transformation.',
     author: 'Hayato Saiki, Chunggi Lee, Hikari Takahashi, Tica Lin, Hidetada Kishi, Kaori Tachibana, Yasuhiro Suzuki, Hanspeter Pfister, Kenji Suzuki',
-    conference: 'ACM CHI Conference on Human Factors in Computing Systems (CHI), 2026. #03c2c9Best Paper Award',
+    conference: 'ACM CHI Conference on Human Factors in Computing Systems (CHI), 2026. Best Paper Award',
     image: BRIDGE2026,
     tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2602.23288' }],
   },
