@@ -9,10 +9,33 @@ import CIKM2020 from '../assets/images/CIKM2020.png';
 import TVCG2019 from '../assets/images/TVCG2019.png';
 import MCV2018 from '../assets/images/MCV2018.png';
 import GenomeAnalysis2018 from '../assets/images/GenomeAnalysis2018.png';
-
 import TVCG2019PDF from '../assets/pdfs/TVCG2019.pdf';
+import VAIR2025 from '../assets/images/VAIR2025.png';
+import VISTAR2026 from '../assets/images/VISTAR2026.gif';
+import BRIDGE2026 from '../assets/images/BRIDGE2026.gif'
 
 const pubs = [
+  {
+    title: 'BRIDGE: Borderless Reconfiguration for Inclusive and Diverse Gameplay Experience via Embodiment Transformation.',
+    author: 'Hayato Saiki, Chunggi Lee, Hikari Takahashi, Tica Lin, Hidetada Kishi, Kaori Tachibana, Yasuhiro Suzuki, Hanspeter Pfister, Kenji Suzuki',
+    conference: 'ACM CHI Conference on Human Factors in Computing Systems (CHI), 2026. #03c2c9Best Paper Award',
+    image: BRIDGE2026,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2602.23288' }],
+  },
+  {
+    title: 'ViSTAR: Virtual Skill Training with Augmented Reality with 3D Avatars and LLM coaching agent.',
+    author: 'Chunggi Lee*, Hayato Saiki*, Tica Lin, Eiji Ikeda, Kenji Suzuki, Chen Zhu-Tian, Hanspeter Pfister',
+    conference: 'ACM CHI Conference on Human Factors in Computing Systems (CHI), 2026.',
+    image: VISTAR2026,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2602.22077' }],
+  },
+  {
+    title: 'VAIR: Visual Analytics for Injury Risk Exploration in Sports.',
+    author: 'Chunggi Lee, Ut Gong, Tica Lin, Stefanie Zollmann, Scott A Epsley, Adam Petway, Hanspeter Pfister',
+    conference: 'IEEE 16th Workshop on Visual Analytics in Healthcare (VAHC).',
+    image: VAIR2025,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2512.17446' }],
+  },
   {
     title: 'Sportify: Question Answering with Embedded Visualizations and Personified Narratives for Sports Video.',
     author: 'Chunggi Lee, Tica Lin, Hanspeter Pfister, Chen Zhu-Tian',

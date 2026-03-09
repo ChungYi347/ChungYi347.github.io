@@ -40,6 +40,14 @@ const Experiences = [
 
 const NewsItems = [
   {
+    date: '2025.03',
+    content: 'Two papers accepted at ACM CHI 2026, with one receiving a Best Paper Award!',
+  },
+  {
+    date: '2025.03',
+    content: 'Submitted one paper in ECCV 2026.',
+  },
+  {
     date: '2025.06',
     content: 'Gave a seminar talk at Korea University.',
   },
