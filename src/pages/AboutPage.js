@@ -40,12 +40,16 @@ const Experiences = [
 
 const NewsItems = [
   {
-    date: '2025.03',
+    date: '2026.04',
+    content: 'Submitted one paper (Speech Interaction in Sport XR) in IEEE VIS 2026.',
+  },
+  {
+    date: '2026.03',
     content: 'Two papers accepted at ACM CHI 2026, with one receiving a Best Paper Award!',
   },
   {
-    date: '2025.03',
-    content: 'Submitted one paper in ECCV 2026.',
+    date: '2026.03',
+    content: 'Submitted one paper (Human Mesh Recovery and Tracking) in ECCV 2026.',
   },
   {
     date: '2025.06',
