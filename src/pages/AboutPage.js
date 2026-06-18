@@ -40,12 +40,16 @@ const Experiences = [
 
 const NewsItems = [
   {
+    date: '2026.06',
+    content: 'Two papers were conditionally accepted: one to IEEE VIS 2026 and one to ECCV 2026.',
+  },
+  {
     date: '2026.04',
     content: 'Submitted one paper (Speech Interaction in Sport XR) in IEEE VIS 2026.',
   },
   {
     date: '2026.03',
-    content: 'Two papers accepted at ACM CHI 2026, with one receiving a Best Paper Award!',
+    content: 'Two papers got accepted at ACM CHI 2026, with one receiving a Best Paper Award!',
   },
   {
     date: '2026.03',
@@ -131,11 +135,12 @@ const AboutPage = forwardRef((props, ref) => {
                 <Link target="_blank" href="https://vcg.seas.harvard.edu/people">
                   Prof. Hanspeter Pfister
                 </Link>
-                . My work lies at the intersection of Human-Computer Interaction (HCI), Visualization, and Computer Vision, aiming to
-                bridge physical and virtual spaces through motion-centric experiences.
-                My research focuses on XR (AR/VR), particularly on human motion understanding and its applications to creating new
-                immersive experiences and situated visualizations. I develop systems that reconstruct human motion from videos using
-                computer vision techniques and integrate them into interactive XR environments.
+                . My research lies at the intersection of Human-Computer Interaction, Visualization, and Computer Vision. 
+                I build intelligent interactive systems that bridge physical and virtual spaces by sensing human motion and situated context, 
+                interpreting them with AI, and transforming them into immersive visual, auditory, and XR feedback. 
+                My work spans video-based motion understanding for sports training and injury analysis, situated visualization in AR/VR, 
+                and emerging smart-glasses experiences such as spatial audio, personalized assistance, and shared-context interaction. 
+                Across these projects, my goal is to design human-centered AI systems that help people better perceive, understand, and act in the physical world.
                 I earned my B.S. and M.S. degrees from the Computer Science department at{' '}
                 <Link target="_blank" href="https://www.unist.ac.kr">UNIST</Link>, where I worked with Prof. Sungahn Ko in the{' '}
                 <Link target="_blank" href="https://ivader.unist.ac.kr/">iVADER Lab</Link>. Prior to my PhD, I worked as an AI Applied
