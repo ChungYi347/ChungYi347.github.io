@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>진로 유형 테스트 · 취업 vs 대학원 / 국내 vs 해외</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --card: #1a1d24;
+    --card-2: #22262f;
+    --line: #2c313c;
+    --text: #e8eaed;
+    --muted: #9aa0ac;
+    --accent: #6c8cff;
+    --accent-2: #ff7a90;
+    --q1: #ff8a5c; /* 국내 취업 */
+    --q2: #5cc9ff; /* 해외 취업 */
+    --q3: #9d7bff; /* 국내 대학원 */
+    --q4: #4ad6a3; /* 해외 대학원 */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(1200px 600px at 50% -10%, #1b2030 0%, var(--bg) 60%);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+      "Noto Sans KR", Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  header { text-align: center; margin-bottom: 28px; }
+  header h1 { font-size: 26px; margin: 0 0 8px; letter-spacing: -0.02em; }
+  header p { color: var(--muted); margin: 0; font-size: 15px; }
+
+  /* progress */
+  .progress-bar { height: 6px; background: var(--line); border-radius: 99px; overflow: hidden; margin: 22px 0 6px; }
+  .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: 99px; transition: width .35s ease; }
+  .progress-text { color: var(--muted); font-size: 13px; text-align: right; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
+  }
+
+  .q-index { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .06em; }
+  .chip {
+    display: inline-block; margin-left: 8px; padding: 2px 10px; border-radius: 99px;
+    font-size: 11px; font-weight: 700; letter-spacing: .04em; vertical-align: middle;
+    background: rgba(108,140,255,.14); color: var(--accent); border: 1px solid rgba(108,140,255,.3);
+  }
+  .q-text { font-size: 21px; font-weight: 700; margin: 12px 0 24px; letter-spacing: -0.01em; min-height: 56px; }
+
+  .yn { display: flex; gap: 12px; }
+  .yn button {
+    flex: 1; padding: 20px 0; font-size: 18px; font-weight: 800;
+    border-radius: 14px; cursor: pointer; border: 1.5px solid var(--line);
+    background: var(--card-2); color: var(--text); transition: all .15s ease;
+  }
+  .yn .yes:hover, .yn .yes.sel { border-color: var(--q4); background: rgba(74,214,163,.14); color: var(--q4); }
+  .yn .no:hover, .yn .no.sel { border-color: var(--accent-2); background: rgba(255,122,144,.14); color: var(--accent-2); }
+  .yn button .em { display: block; font-size: 24px; margin-bottom: 4px; }
+
+  .nav { display: flex; justify-content: space-between; margin-top: 22px; gap: 12px; }
+  button.nav-btn {
+    font-family: inherit; font-size: 15px; font-weight: 600;
+    border-radius: 11px; padding: 12px 22px; cursor: pointer;
+    border: 1px solid var(--line); background: var(--card-2); color: var(--text);
+    transition: all .15s ease;
+  }
+  button.nav-btn:hover:not(:disabled) { border-color: var(--accent); }
+  button.nav-btn:disabled { opacity: .4; cursor: not-allowed; }
+  button.primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); border: none; color: #fff; font-family: inherit; font-size: 15px; font-weight: 600; border-radius: 11px; padding: 12px 22px; cursor: pointer; }
+
+  .hidden { display: none; }
+
+  .intro-list { color: var(--muted); font-size: 14px; }
+
+  /* result */
+  .result-type { text-align: center; margin-bottom: 6px; }
+  .result-type .badge { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--muted); }
+  .result-type h2 { font-size: 30px; margin: 8px 0 4px; letter-spacing: -0.02em; }
+  .result-type .sub { color: var(--muted); font-size: 15px; }
+
+  /* quadrant chart */
+  .chart-holder { position: relative; margin: 44px auto 40px; width: 100%; max-width: 400px; aspect-ratio: 1/1; }
+  .quad {
+    position: absolute; inset: 0;
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+    border-radius: 16px; overflow: hidden; border: 1px solid var(--line);
+  }
+  .quad > div {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 4px; font-weight: 700; font-size: 14px; text-align: center; opacity: .35;
+    transition: opacity .3s;
+  }
+  .quad .cell-emoji { font-size: 24px; }
+  .q-tl { background: rgba(157,123,255,.14); color: var(--q3); }   /* 국내 대학원 */
+  .q-tr { background: rgba(74,214,163,.14); color: var(--q4); }    /* 해외 대학원 */
+  .q-bl { background: rgba(255,138,92,.14); color: var(--q1); }    /* 국내 취업 */
+  .q-br { background: rgba(92,201,255,.14); color: var(--q2); }    /* 해외 취업 */
+  .quad > div.active { opacity: 1; }
+
+  .axis-label { position: absolute; color: var(--muted); font-size: 12px; font-weight: 600; }
+  .axis-top { top: -22px; left: 50%; transform: translateX(-50%); }
+  .axis-bottom { bottom: -22px; left: 50%; transform: translateX(-50%); }
+  .axis-left { left: -10px; top: 50%; transform: translate(-100%,-50%); }
+  .axis-right { right: -10px; top: 50%; transform: translate(100%,-50%); }
+
+  .marker {
+    position: absolute; width: 22px; height: 22px; border-radius: 50%;
+    background: #fff; border: 3px solid var(--accent);
+    box-shadow: 0 0 0 6px rgba(108,140,255,.25), 0 6px 16px rgba(0,0,0,.5);
+    transform: translate(-50%,-50%); transition: all .6s cubic-bezier(.2,.8,.2,1); z-index: 3;
+  }
+  .cross-v, .cross-h { position: absolute; background: var(--line); z-index: 2; }
+  .cross-v { width: 1px; top: 0; bottom: 0; left: 50%; }
+  .cross-h { height: 1px; left: 0; right: 0; top: 50%; }
+
+  .desc { background: var(--card-2); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-top: 22px; }
+  .desc h3 { margin: 0 0 8px; font-size: 16px; }
+  .desc p { margin: 0 0 12px; color: var(--muted); font-size: 15px; }
+  .desc ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 14px; }
+  .desc li { margin-bottom: 4px; }
+
+  .scores { display: flex; gap: 12px; margin-top: 18px; }
+  .score-box { flex: 1; background: var(--card-2); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .score-box .label { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .bar { height: 8px; background: var(--line); border-radius: 99px; position: relative; overflow: hidden; }
+  .bar .lead { display: flex; justify-content: space-between; font-size: 13px; margin-top: 8px; }
+  .bar-fill { position: absolute; top: 0; bottom: 0; }
+
+  footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 30px; }
+  .disclaimer { color: var(--muted); font-size: 12.5px; text-align: center; margin-top: 16px; opacity: .8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🧭 나의 진로 유형 테스트</h1>
+    <p>12개의 질문으로 알아보는 <b>취업 vs 대학원 · 국내 vs 해외</b></p>
+  </header>
+
+  <!-- INTRO -->
+  <section id="intro" class="card">
+    <div class="q-text" style="margin-bottom:12px; min-height:auto;">시작하기 전에</div>
+    <p style="color:var(--muted); margin-top:0;">
+      각 문장을 읽고 <b>예 / 아니오</b>로 답해주세요. 정답은 없어요. 지금 이 순간의 솔직한
+      마음으로 선택하면 됩니다. 결과는 <b>4가지 진로 유형</b> 중 하나로 나옵니다.
+    </p>
+    <ul class="intro-list">
+      <li>🧑‍💼 국내 취업 · 🌏 해외 취업</li>
+      <li>🎓 국내 대학원 · 🛫 해외 대학원</li>
+    </ul>
+    <div class="nav" style="justify-content:flex-end;">
+      <button class="primary" onclick="start()">테스트 시작 →</button>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="hidden">
+    <div class="progress-bar"><div class="progress-fill" id="pfill"></div></div>
+    <div class="progress-text" id="ptext">1 / 12</div>
+    <div class="card" style="margin-top:12px;">
+      <span class="q-index" id="qindex">QUESTION 01</span>
+      <div class="q-text" id="qtext"></div>
+      <div class="yn">
+        <button class="yes" id="btnYes" onclick="answer('yes')"><span class="em">⭕️</span>예</button>
+        <button class="no" id="btnNo" onclick="answer('no')"><span class="em">❌</span>아니오</button>
+      </div>
+      <div class="nav">
+        <button class="nav-btn" id="prevBtn" onclick="prev()">← 이전</button>
+        <span class="progress-text" style="align-self:center;" id="hint">예 / 아니오를 선택하세요</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" class="hidden">
+    <div class="card">
+      <div class="result-type">
+        <span class="badge" id="rbadge">YOUR TYPE</span>
+        <h2 id="rtitle"></h2>
+        <div class="sub" id="rsub"></div>
+      </div>
+
+      <div class="chart-holder">
+        <div class="axis-label axis-top">🎓 대학원</div>
+        <div class="axis-label axis-bottom">🧑‍💼 취업</div>
+        <div class="axis-label axis-left">국내</div>
+        <div class="axis-label axis-right">해외</div>
+        <div class="quad">
+          <div class="q-tl" id="cell-tl"><span class="cell-emoji">🎓</span>국내 대학원</div>
+          <div class="q-tr" id="cell-tr"><span class="cell-emoji">🛫</span>해외 대학원</div>
+          <div class="q-bl" id="cell-bl"><span class="cell-emoji">🧑‍💼</span>국내 취업</div>
+          <div class="q-br" id="cell-br"><span class="cell-emoji">🌏</span>해외 취업</div>
+        </div>
+        <div class="cross-v"></div>
+        <div class="cross-h"></div>
+        <div class="marker" id="marker"></div>
+      </div>
+
+      <div class="scores">
+        <div class="score-box">
+          <div class="label">진로 방향</div>
+          <div class="bar"><div class="bar-fill" id="bar-career"></div></div>
+          <div class="lead"><span>취업</span><span>대학원</span></div>
+        </div>
+        <div class="score-box">
+          <div class="label">활동 무대</div>
+          <div class="bar"><div class="bar-fill" id="bar-region"></div></div>
+          <div class="lead"><span>국내</span><span>해외</span></div>
+        </div>
+      </div>
+
+      <div class="desc">
+        <h3 id="dtitle"></h3>
+        <p id="ddesc"></p>
+        <ul id="dtips"></ul>
+      </div>
+
+      <div class="nav" style="justify-content:center; margin-top:24px;">
+        <button class="nav-btn" onclick="restart()">🔄 다시 하기</button>
+      </div>
+      <p class="disclaimer">※ 이 테스트는 재미로 보는 진로 성향 참고용이에요. 최종 결정은 당신의 몫! 🙂</p>
+    </div>
+  </section>
+
+  <footer>made with ☕ · 진로 유형 테스트</footer>
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   질문 데이터 — career-quiz-questions.json 과 동일 (내장본).
+   웹서버로 서빙 중이면 아래 loadData()가 JSON을 우선 로드하고,
+   file:// 로 직접 열면 이 내장 데이터를 사용합니다.
+
+   career: 음수=취업 / 양수=대학원 · region: 음수=국내 / 양수=해외
+-------------------------------------------------------------------*/
+const EMBEDDED = {
+  questions: [
+    { id: 1,  category: "대학원", axis: "career", question: "나는 약간 부당해도 괜찮다.", yes: { career: 2, region: 0 }, no: { career: -1, region: 0 } },
+    { id: 2,  category: "취업",   axis: "career", question: "공부보다 돈!", yes: { career: -2, region: 0 }, no: { career: 1, region: 0 } },
+    { id: 3,  category: "대학원", axis: "career", question: "나는 방치되어 있어서 알아서 잘한다.", yes: { career: 2, region: 0 }, no: { career: -1, region: 0 } },
+    { id: 4,  category: "취업",   axis: "career", question: "나는 효율적이고 실용적인걸 좋아한다.", yes: { career: -2, region: 0 }, no: { career: 1, region: 0 } },
+    { id: 5,  category: "대학원", axis: "career", question: "나는 존버를 잘한다.", yes: { career: 2, region: 0 }, no: { career: -1, region: 0 } },
+    { id: 6,  category: "취업",   axis: "career", question: "시키는 일을 하는게 좋다.", yes: { career: -2, region: 0 }, no: { career: 1, region: 0 } },
+    { id: 7,  category: "해외",   axis: "region", question: "영어를 잘한다. 혹은 나는 일단 저지르고 생각한다.", yes: { career: 0, region: 2 }, no: { career: 0, region: -1 } },
+    { id: 8,  category: "국내",   axis: "region", question: "나는 뜨거운 혹은 불속성 효자/효녀이다.", yes: { career: 0, region: -2 }, no: { career: 0, region: 1 } },
+    { id: 9,  category: "해외",   axis: "region", question: "모르는 사람이 말걸어도 좋다. 혹은 모르는 사람이랑 하루종일 이야기할 수 있다.", yes: { career: 0, region: 2 }, no: { career: 0, region: -1 } },
+    { id: 10, category: "국내",   axis: "region", question: "나는 극 안정형이다.", yes: { career: 0, region: -2 }, no: { career: 0, region: 1 } },
+    { id: 11, category: "해외",   axis: "region", question: "나는 핵인싸다. 운동 혹은 악기등 좋아한다.", yes: { career: 0, region: 2 }, no: { career: 0, region: -1 } },
+    { id: 12, category: "국내",   axis: "region", question: "뭘 고생하냐? 여행도 싫고 집이 좋다.", yes: { career: 0, region: -2 }, no: { career: 0, region: 1 } },
+  ],
+};
+
+const TYPES = {
+  "국내취업": {
+    key: "bl", title: "🧑‍💼 국내 취업형", sub: "실전에서 빛나는 국내 커리어 빌더", color: "var(--q1)",
+    desc: "당신은 배움보다 실행, 이론보다 결과에서 에너지를 얻는 타입이에요. 익숙한 환경에서 빠르게 경력을 쌓고 실무 전문가로 성장하는 길이 잘 맞습니다. 안정감을 바탕으로 착실하게 성과를 만들어가는 사람이에요.",
+    tips: [
+      "인턴·현업 프로젝트로 실무 감각을 빠르게 쌓아보세요.",
+      "포트폴리오/직무 역량 중심으로 커리어를 설계하면 강점이 커져요.",
+      "장기적으로는 도메인 전문성 + 리더십을 함께 키워보세요.",
+    ],
+  },
+  "해외취업": {
+    key: "br", title: "🌏 해외 취업형", sub: "넓은 무대를 노리는 글로벌 실무가", color: "var(--q2)",
+    desc: "당신은 실무로 승부하되 무대는 세계로 넓히고 싶은 타입이에요. 새로운 환경에서 도전하는 걸 즐기고, 글로벌 기업이나 해외 시장에서 커리어를 키우는 길이 잘 맞습니다.",
+    tips: [
+      "영어 등 외국어 실무 커뮤니케이션 역량을 꾸준히 다져보세요.",
+      "글로벌 채용 트랙(현지 취업/주재원/원격)을 미리 리서치해보세요.",
+      "국제적으로 통하는 기술 스택·자격을 우선순위에 두면 좋아요.",
+    ],
+  },
+  "국내대학원": {
+    key: "tl", title: "🎓 국내 대학원형", sub: "깊이로 승부하는 국내 연구자", color: "var(--q3)",
+    desc: "당신은 문제의 근본을 파고드는 걸 즐기는 연구자 기질이에요. 익숙한 환경에서 안정적으로 학문적 깊이를 쌓아가는 길이 잘 맞습니다. 지식을 정립하고 개척하는 데서 큰 보람을 느껴요.",
+    tips: [
+      "관심 분야 랩(Lab)과 지도교수를 일찍부터 탐색해보세요.",
+      "학부 연구생·논문 경험으로 연구 적성을 미리 확인해보세요.",
+      "국내 학위 후 해외 포닥/취업으로 확장하는 경로도 열려 있어요.",
+    ],
+  },
+  "해외대학원": {
+    key: "tr", title: "🛫 해외 대학원형", sub: "세계를 무대로 파고드는 개척형 연구자", color: "var(--q4)",
+    desc: "당신은 깊이 있는 연구를 세계 최고 환경에서 해보고 싶은 타입이에요. 낯선 환경을 성장의 기회로 여기고, 글로벌 학계·연구 네트워크 속에서 자신을 확장하는 길이 잘 맞습니다.",
+    tips: [
+      "영어 논문·에세이·추천서 등 유학 준비를 미리 시작해보세요.",
+      "관심 분야의 해외 연구 그룹과 교수를 리스트업 해보세요.",
+      "장학금·펀딩·인턴십 기회를 적극적으로 찾아보면 부담이 줄어요.",
+    ],
+  },
+};
+
+/* ---------------- state ---------------- */
+let QUESTIONS = EMBEDDED.questions;
+let cur = 0;
+let answers = [];
+
+const $ = (id) => document.getElementById(id);
+
+// 웹서버로 서빙 중이면 JSON 파일을 우선 로드 (file://에서는 실패 → 내장본 사용)
+async function loadData() {
+  try {
+    const res = await fetch("career-quiz-questions.json", { cache: "no-store" });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.questions && data.questions.length) QUESTIONS = data.questions;
+    }
+  } catch (e) { /* file:// 등 → 내장 데이터 사용 */ }
+  answers = new Array(QUESTIONS.length).fill(null);
+}
+loadData();
+
+function start() {
+  $("intro").classList.add("hidden");
+  $("quiz").classList.remove("hidden");
+  render();
+}
+
+function render() {
+  const item = QUESTIONS[cur];
+  $("qindex").textContent = "QUESTION " + String(cur + 1).padStart(2, "0");
+  $("qtext").textContent = item.question;
+
+  const pct = (cur / QUESTIONS.length) * 100;
+  $("pfill").style.width = pct + "%";
+  $("ptext").textContent = (cur + 1) + " / " + QUESTIONS.length;
+
+  $("btnYes").classList.toggle("sel", answers[cur] === "yes");
+  $("btnNo").classList.toggle("sel", answers[cur] === "no");
+
+  $("prevBtn").disabled = cur === 0;
+  $("hint").textContent = answers[cur]
+    ? (cur === QUESTIONS.length - 1 ? "마지막 질문! 답하면 결과로 이동합니다" : "다음 질문으로 넘어갑니다…")
+    : "예 / 아니오를 선택하세요";
+}
+
+function answer(val) {
+  answers[cur] = val;
+  render();
+  // 잠깐 선택 표시 후 자동으로 다음으로
+  setTimeout(() => {
+    if (cur < QUESTIONS.length - 1) { cur++; render(); }
+    else showResult();
+  }, 260);
+}
+
+function prev() { if (cur > 0) { cur--; render(); } }
+
+function showResult() {
+  let career = 0, region = 0;
+  answers.forEach((val, qi) => {
+    const w = QUESTIONS[qi][val] || { career: 0, region: 0 };
+    career += w.career;
+    region += w.region;
+  });
+
+  // 정규화용 최대 절댓값
+  let maxCareer = 0, maxRegion = 0;
+  QUESTIONS.forEach((q) => {
+    maxCareer += Math.max(Math.abs(q.yes.career), Math.abs(q.no.career));
+    maxRegion += Math.max(Math.abs(q.yes.region), Math.abs(q.no.region));
+  });
+
+  const cN = maxCareer ? career / maxCareer : 0; // -1 ~ 1
+  const rN = maxRegion ? region / maxRegion : 0;
+
+  const isGrad = cN >= 0;      // 대학원 성향
+  const isOverseas = rN >= 0;  // 해외 성향
+
+  let typeKey;
+  if (isGrad && !isOverseas) typeKey = "국내대학원";
+  else if (isGrad && isOverseas) typeKey = "해외대학원";
+  else if (!isGrad && !isOverseas) typeKey = "국내취업";
+  else typeKey = "해외취업";
+
+  const t = TYPES[typeKey];
+
+  $("quiz").classList.add("hidden");
+  $("result").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  $("rtitle").textContent = t.title;
+  $("rsub").textContent = t.sub;
+  $("dtitle").textContent = t.title + " 에게 추천해요";
+  $("ddesc").textContent = t.desc;
+
+  const ul = $("dtips");
+  ul.innerHTML = "";
+  t.tips.forEach((tip) => {
+    const li = document.createElement("li");
+    li.textContent = tip;
+    ul.appendChild(li);
+  });
+
+  ["tl", "tr", "bl", "br"].forEach((k) => $("cell-" + k).classList.remove("active"));
+  $("cell-" + t.key).classList.add("active");
+
+  const x = (rN + 1) / 2 * 100;       // 0(국내) ~ 100(해외)
+  const y = (1 - (cN + 1) / 2) * 100; // 0(상=대학원) ~ 100(하=취업)
+  const marker = $("marker");
+  marker.style.left = "50%";
+  marker.style.top = "50%";
+  setTimeout(() => { marker.style.left = x + "%"; marker.style.top = y + "%"; }, 100);
+
+  setBar("bar-career", cN);
+  setBar("bar-region", rN);
+}
+
+// value: -1 ~ 1. 음수→왼쪽, 양수→오른쪽 (중앙 50% 기준)
+function setBar(id, value) {
+  const el = $(id);
+  const mag = Math.min(Math.abs(value), 1) * 50;
+  if (value >= 0) {
+    el.style.left = "50%"; el.style.right = "auto"; el.style.width = mag + "%";
+    el.style.background = "var(--accent-2)";
+  } else {
+    el.style.right = "50%"; el.style.left = "auto"; el.style.width = mag + "%";
+    el.style.background = "var(--accent)";
+  }
+}
+
+function restart() {
+  cur = 0;
+  answers = new Array(QUESTIONS.length).fill(null);
+  $("result").classList.add("hidden");
+  $("intro").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+</script>
+</body>
+</html>
