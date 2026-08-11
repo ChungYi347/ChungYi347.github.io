@@ -13,8 +13,24 @@ import TVCG2019PDF from '../assets/pdfs/TVCG2019.pdf';
 import VAIR2025 from '../assets/images/VAIR2025.png';
 import VISTAR2026 from '../assets/images/VISTAR2026.gif';
 import BRIDGE2026 from '../assets/images/BRIDGE2026.gif'
+import ECCV2026 from '../assets/images/ECCV2026.gif'
+import VIS2026 from '../assets/images/VIS2026.gif'
 
 const pubs = [
+  {
+    title: 'Who\'s That Player?: Externalizing Query Interpretation in Spoken XR Sports Interaction',
+    author: 'Chunggi Lee, Tica Lin, Yalong Yang, Hanspeter Pfister',
+    conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS)',
+    image: VIS2026,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2608.00876' }],
+  },
+  {
+    title: 'DETRAM: End-to-end DEtection, Tracking and Recovery of HumAn Meshes.',
+    author: 'Chunggi Lee, Seonwook Park, Wanhua Li, Umar Iqbal*, Hanspeter Pfister*',
+    conference: 'The European Conference on Computer Vision (ECCV)',
+    image: ECCV2026,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2607.09089v1' }],
+  },
   {
     title: 'BRIDGE: Borderless Reconfiguration for Inclusive and Diverse Gameplay Experience via Embodiment Transformation.',
     author: 'Hayato Saiki, Chunggi Lee, Hikari Takahashi, Tica Lin, Hidetada Kishi, Kaori Tachibana, Yasuhiro Suzuki, Hanspeter Pfister, Kenji Suzuki',
