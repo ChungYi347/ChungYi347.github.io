@@ -40,6 +40,10 @@ const Experiences = [
 
 const NewsItems = [
   {
+    date: '2026.08',
+    content: 'One paper got accepted: EMNLP 2026 (Main Conference).',
+  },
+  {
     date: '2026.06',
     content: 'Two papers were conditionally accepted: one to IEEE VIS 2026 and one to ECCV 2026.',
   },
