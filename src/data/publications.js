@@ -9,23 +9,64 @@ import CIKM2020 from '../assets/images/CIKM2020.png';
 import TVCG2019 from '../assets/images/TVCG2019.png';
 import MCV2018 from '../assets/images/MCV2018.png';
 import GenomeAnalysis2018 from '../assets/images/GenomeAnalysis2018.png';
-
 import TVCG2019PDF from '../assets/pdfs/TVCG2019.pdf';
+import VAIR2025 from '../assets/images/VAIR2025.png';
+import VISTAR2026 from '../assets/images/VISTAR2026.gif';
+import BRIDGE2026 from '../assets/images/BRIDGE2026.gif'
+import ECCV2026 from '../assets/images/ECCV2026.gif'
+import VIS2026 from '../assets/images/VIS2026.gif'
 
 const pubs = [
+  {
+    title: 'Who\'s That Player?: Externalizing Query Interpretation in Spoken XR Sports Interaction',
+    author: 'Chunggi Lee, Tica Lin, Yalong Yang, Hanspeter Pfister',
+    conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS)',
+    image: VIS2026,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2608.00876' }],
+  },
+  {
+    title: 'DETRAM: End-to-end DEtection, Tracking and Recovery of HumAn Meshes.',
+    author: 'Chunggi Lee, Seonwook Park, Wanhua Li, Umar Iqbal*, Hanspeter Pfister*',
+    conference: 'The European Conference on Computer Vision (ECCV)',
+    image: ECCV2026,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2607.09089v1' }],
+  },
+  {
+    title: 'BRIDGE: Borderless Reconfiguration for Inclusive and Diverse Gameplay Experience via Embodiment Transformation.',
+    author: 'Hayato Saiki, Chunggi Lee, Hikari Takahashi, Tica Lin, Hidetada Kishi, Kaori Tachibana, Yasuhiro Suzuki, Hanspeter Pfister, Kenji Suzuki',
+    conference: 'ACM CHI Conference on Human Factors in Computing Systems (CHI), 2026. Best Paper Award',
+    image: BRIDGE2026,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2602.23288' }],
+  },
+  {
+    title: 'ViSTAR: Virtual Skill Training with Augmented Reality with 3D Avatars and LLM coaching agent.',
+    author: 'Chunggi Lee*, Hayato Saiki*, Tica Lin, Eiji Ikeda, Kenji Suzuki, Chen Zhu-Tian, Hanspeter Pfister',
+    conference: 'ACM CHI Conference on Human Factors in Computing Systems (CHI), 2026.',
+    image: VISTAR2026,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2602.22077' }],
+  },
+  {
+    title: 'VAIR: Visual Analytics for Injury Risk Exploration in Sports.',
+    author: 'Chunggi Lee, Ut Gong, Tica Lin, Stefanie Zollmann, Scott A Epsley, Adam Petway, Hanspeter Pfister',
+    conference: 'IEEE 16th Workshop on Visual Analytics in Healthcare (VAHC).',
+    image: VAIR2025,
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2512.17446' }],
+  },
   {
     title: 'Sportify: Question Answering with Embedded Visualizations and Personified Narratives for Sports Video.',
     author: 'Chunggi Lee, Tica Lin, Hanspeter Pfister, Chen Zhu-Tian',
     conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS).',
     image: VIS2024,
-    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/abs/2408.05123' }],
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/abs/2408.05123' }, {tag: '[Webpage]', link: 'https://chungyi347.github.io/Sportify/'}],
   },
   {
     title: 'DreamStyler: Paint by Style Inversion with Text-to-Image Diffusion Models.',
     author: 'Namhyuk Ahn, Junsoo Lee, Chunggi Lee, Kunhee Kim, Daesik Kim, Seung-Hun Nam, Kibeom Hong',
     conference: 'The Association for the Advancement of Artificial Intelligence (AAAI), 2024, Accepted',
     image: AAAI2024,
-    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2309.06933.pdf' }],
+    tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2309.06933.pdf' }, 
+      {tag: '[Webpage]', link: 'https://nmhkahn.github.io/dreamstyler/'}, 
+      {tag: '[Code]', link: 'https://github.com/webtoon/dreamstyler'}],
   },
   {
     title:

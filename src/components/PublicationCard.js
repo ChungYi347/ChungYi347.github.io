@@ -27,12 +27,37 @@ const makeTitle = (author, isLight, primary, secondary) => {
   );
 };
 
+const makeConference = (conference, secondary) => {
+  const target = "Best Paper Award";
+  // "Best Paper Award"가 문자열에 없으면 그냥 텍스트 반환
+  if (!conference.includes(target)) {
+    return <Typography variant="h6" color={secondary}>{conference}</Typography>;
+  }
+
+  const words = conference.split(target);
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <Typography variant="h6" color={secondary}>
+        {words[0]}
+        <Box
+          component="span" // 줄바꿈 방지
+          sx={{ color: '#03c2c9', fontWeight: 700 }} // 민트색 강조
+        >
+          {target}
+        </Box>
+        {words[1]}
+      </Typography>
+    </Box>
+  );
+};
+
 const PublicationCard = ({ media, title, author, conference, tags }) => {
   const { isLight } = useThemeContext();
   const primary = isLight ? 'text.primary' : 'white';
   const secondary = isLight ? 'text.secondary' : 'white';
 
   const backgroundColor = isLight === true ? 'white' : '#525252';
+  const isVideo = media.endsWith('.mp4') || media.endsWith('.webm');
   return (
     <Animate>
       <Card sx={{ width: '100%', marginTop: 1, marginBottom: 1, backgroundColor: backgroundColor }}>
@@ -46,12 +71,29 @@ const PublicationCard = ({ media, title, author, conference, tags }) => {
             flexDirection: { xs: 'column', md: 'row' },
           }}
         >
-          <motion.button
+          {/* <motion.button
             animate={{ backgroundColor: 'white', border: 'none' }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 1.0 }}
           >
             <CardMedia sx={{ width: { md: '30vh', xs: '100%' } }} component="img" image={media} alt={title} />
+          </motion.button> */}
+          <motion.button
+            animate={{ backgroundColor: 'white', border: 'none' }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 1.0 }}
+            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+          >
+            <CardMedia
+              sx={{ width: { md: '30vh', xs: '100%' }, display: 'block' }}
+              component={isVideo ? 'video' : 'img'}
+              image={media}
+              alt={title}
+              autoPlay={isVideo}
+              muted={isVideo}
+              loop={isVideo}
+              playsInline={isVideo}
+            />
           </motion.button>
 
           <CardContent>
@@ -59,9 +101,10 @@ const PublicationCard = ({ media, title, author, conference, tags }) => {
               {title}
             </Typography>
             {makeTitle(author, isLight, primary, secondary)}
-            <Typography variant="h6" color={secondary}>
+            {makeConference(conference, secondary)}
+            {/* <Typography variant="h6" color={secondary}>
               {conference}
-            </Typography>
+            </Typography> */}
             <Box
               sx={{
                 display: 'flex',
