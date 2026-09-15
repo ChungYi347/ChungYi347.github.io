@@ -15,26 +15,34 @@ import VISTAR2026 from '../assets/images/VISTAR2026.gif';
 import BRIDGE2026 from '../assets/images/BRIDGE2026.gif'
 import ECCV2026 from '../assets/images/ECCV2026.gif'
 import VIS2026 from '../assets/images/VIS2026.gif'
+import EMNLP2026 from '../assets/images/EMNLP2026.gif'
 
 const pubs = [
-  {
-    title: 'Who\'s That Player?: Externalizing Query Interpretation in Spoken XR Sports Interaction',
-    author: 'Chunggi Lee, Tica Lin, Yalong Yang, Hanspeter Pfister',
-    conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS)',
-    image: VIS2026,
+    {
+      title: 'Who\'s That Player?: Externalizing Query Interpretation in Spoken XR Sports Interaction',
+      author: 'Chunggi Lee, Tica Lin, Yalong Yang, Hanspeter Pfister',
+      conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS), 2026',
+      image: VIS2026,
+      tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2608.00876' }],
+    },
+    {
+    title: 'AVERT: Audio-Verified Adjudication for Spoken Dialogue State Tracking',
+    author: 'Chunggi Lee, Hanspeter Pfister',
+    conference: 'Conference on Empirical Methods in Natural Language Processing (EMNLP), 2026',
+    image: EMNLP2026,
     tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2608.00876' }],
   },
   {
     title: 'DETRAM: End-to-end DEtection, Tracking and Recovery of HumAn Meshes.',
     author: 'Chunggi Lee, Seonwook Park, Wanhua Li, Umar Iqbal*, Hanspeter Pfister*',
-    conference: 'The European Conference on Computer Vision (ECCV)',
+    conference: 'The European Conference on Computer Vision (ECCV), 2026',
     image: ECCV2026,
     tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2607.09089v1' }],
   },
   {
     title: 'BRIDGE: Borderless Reconfiguration for Inclusive and Diverse Gameplay Experience via Embodiment Transformation.',
     author: 'Hayato Saiki, Chunggi Lee, Hikari Takahashi, Tica Lin, Hidetada Kishi, Kaori Tachibana, Yasuhiro Suzuki, Hanspeter Pfister, Kenji Suzuki',
-    conference: 'ACM CHI Conference on Human Factors in Computing Systems (CHI), 2026. Best Paper Award',
+    conference: 'ACM CHI Conference on Human Factors in Computing Systems (CHI), 2026, Best Paper Award',
     image: BRIDGE2026,
     tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2602.23288' }],
   },
@@ -48,14 +56,14 @@ const pubs = [
   {
     title: 'VAIR: Visual Analytics for Injury Risk Exploration in Sports.',
     author: 'Chunggi Lee, Ut Gong, Tica Lin, Stefanie Zollmann, Scott A Epsley, Adam Petway, Hanspeter Pfister',
-    conference: 'IEEE 16th Workshop on Visual Analytics in Healthcare (VAHC).',
+    conference: 'IEEE 16th Workshop on Visual Analytics in Healthcare (VAHC), 2025',
     image: VAIR2025,
     tags: [{ tag: '[PDF]', link: 'https://arxiv.org/pdf/2512.17446' }],
   },
   {
     title: 'Sportify: Question Answering with Embedded Visualizations and Personified Narratives for Sports Video.',
     author: 'Chunggi Lee, Tica Lin, Hanspeter Pfister, Chen Zhu-Tian',
-    conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS).',
+    conference: 'IEEE Transactions on Visualization and Computer Graphics (IEEE VIS), 2024',
     image: VIS2024,
     tags: [{ tag: '[PDF]', link: 'https://arxiv.org/abs/2408.05123' }, {tag: '[Webpage]', link: 'https://chungyi347.github.io/Sportify/'}],
   },

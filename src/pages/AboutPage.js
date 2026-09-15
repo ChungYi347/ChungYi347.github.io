@@ -9,15 +9,15 @@ import Animate from '../components/Animate';
 const Educations = [
   {
     title: 'Harvard University',
-    content: 'Ph.D Student in Computer Science, 2023~Now',
+    content: 'Ph.D Student in Computer Science, 2023-2027 (Expected)',
   },
   {
     title: 'Ulsan National Institute of Science and Technology (UNIST)',
-    content: 'M.S in Computer Science and Engineering, 2018~2020',
+    content: 'M.S in Computer Science and Engineering, 2018-2020',
   },
   {
     title: 'Ulsan National Institute of Science and Technology (UNIST)',
-    content: 'B.S in Computer Science and Engineering, 2014~2018',
+    content: 'B.S in Computer Science and Engineering, 2014-2018',
   },
 ];
 
@@ -39,6 +39,10 @@ const Experiences = [
 ];
 
 const NewsItems = [
+  {
+    date: '2026.09',
+    content: 'Submitted 3 CHI 2027 papers: 2 first-author on smart glasses, 1 second-author on interactive narrative.',
+  },
   {
     date: '2026.08',
     content: 'One paper got accepted: EMNLP 2026 (Main Conference).',
@@ -139,18 +143,60 @@ const AboutPage = forwardRef((props, ref) => {
                 <Link target="_blank" href="https://vcg.seas.harvard.edu/people">
                   Prof. Hanspeter Pfister
                 </Link>
-                . My research lies at the intersection of Human-Computer Interaction, Visualization, and Computer Vision. 
-                I build intelligent interactive systems that bridge physical and virtual spaces by sensing human motion and situated context, 
-                interpreting them with AI, and transforming them into immersive visual, auditory, and XR feedback. 
-                My work spans video-based motion understanding for sports training and injury analysis, situated visualization in AR/VR, 
-                and emerging smart-glasses experiences such as spatial audio, personalized assistance, and shared-context interaction. 
-                Across these projects, my goal is to design human-centered AI systems that help people better perceive, understand, and act in the physical world.
+                . My research focuses on 
+                <Box
+                  component="span"
+                  sx={{
+                    fontWeight: 600,
+                    textDecoration: 'underline',
+                    textDecorationColor: '#03c2c9',
+                    textDecorationThickness: '2px',
+                    textUnderlineOffset: '3px',
+                  }}
+                > Human-Centered Multimodal Interactive AI for Wearable and Immersive Systems. </Box> 
+                I study how AI systems can understand people, context, and intent, determine and verify the evidence needed to act, and adapt their interaction to users and situations. 
+                My work bridges HCI with computer vision, speech and language, multimodal interaction, and XR, with publications at <Box
+                  component="span"
+                  sx={{
+                    fontWeight: 600,
+                    textDecoration: 'underline',
+                    textDecorationColor: '#03c2c9',
+                    textDecorationThickness: '2px',
+                    textUnderlineOffset: '3px',
+                  }}
+                > CHI, IEEE VIS/TVCG, CVPR, ECCV, and EMNLP. </Box>
+                I am particularly interested in starting from problems that emerge in human experience, translating them into technical challenges in AI, and bringing the resulting capabilities back into interactive systems that people can actually use.
                 I earned my B.S. and M.S. degrees from the Computer Science department at{' '}
                 <Link target="_blank" href="https://www.unist.ac.kr">UNIST</Link>, where I worked with Prof. Sungahn Ko in the{' '}
                 <Link target="_blank" href="https://ivader.unist.ac.kr/">iVADER Lab</Link>. Prior to my PhD, I worked as an AI Applied
                 Researcher at{' '}
                 <Link target="_blank" href="https://webtoonscorp.com/en/">Naver Webtoon</Link> and{' '}
                 <Link target="_blank" href="https://lunit.io/">Lunit</Link> as part of my military service.
+              </Typography>
+              <Typography variant="h6">
+                <Box
+                  component="span"
+                  sx={{
+                    fontWeight: 600,
+                    textDecoration: 'underline',
+                    textDecorationColor: '#03c2c9',
+                    textDecorationThickness: '2px',
+                    textUnderlineOffset: '3px',
+
+                    animation: 'blink 1.2s ease-in-out infinite',
+
+                    '@keyframes blink': {
+                      '0%, 100%': {
+                        opacity: 1,
+                      },
+                      '50%': {
+                        opacity: 0.35,
+                      },
+                    },
+                  }}
+                > 
+                I am currently on the job market and exploring research opportunities for 2027.
+                </Box>
               </Typography>
             </Animate>
             <Box
