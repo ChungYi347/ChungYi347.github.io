@@ -1,13 +1,13 @@
-import InteractiveSegmentation2022 from '../assets/images/InteractiveSegmentation2022.png';
-// import QualityMatter2022 from '../assets/images/QualityMatter2022.png';
-import CVPR2022 from '../assets/images/CVPR2022.png';
-import CHI2020 from '../assets/images/CHI2020.png';
-import CIKM2020 from '../assets/images/CIKM2020.png';
-import TVCG2019 from '../assets/images/TVCG2019.png';
-import ForecastingSys2019 from '../assets/images/ForecastingSys2019.png';
-import GenomeAnalysis2018 from '../assets/images/GenomeAnalysis2018.png';
-import Circos2018 from '../assets/images/Circos2018.png';
-import MCV2018 from '../assets/images/MCV2018.png';
+import InteractiveSegmentation2022 from '../assets/images/InteractiveSegmentation2022.webp';
+// import QualityMatter2022 from '../assets/images/QualityMatter2022.webp';
+import CVPR2022 from '../assets/images/CVPR2022.webp';
+import CHI2020 from '../assets/images/CHI2020.webp';
+import CIKM2020 from '../assets/images/CIKM2020.webp';
+import TVCG2019 from '../assets/images/TVCG2019.webp';
+import ForecastingSys2019 from '../assets/images/ForecastingSys2019.webp';
+import GenomeAnalysis2018 from '../assets/images/GenomeAnalysis2018.webp';
+import Circos2018 from '../assets/images/Circos2018.webp';
+import MCV2018 from '../assets/images/MCV2018.webp';
 
 import TVCG2019PDF from '../assets/pdfs/TVCG2019.pdf';
 

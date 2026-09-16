@@ -1,63 +1,46 @@
 import React, { useState, forwardRef } from 'react';
-import { css } from '@emotion/react';
-import Title from '../layouts/Title';
-import { Paper, Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 
+import Title from '../layouts/Title';
 import Animate from '../components/Animate';
 import DetailModal from '../components/Modal';
-import { useThemeContext } from '../contexts/ThemeContext';
-
 import ProjectCard from '../components/ProjectCard';
 import projs from '../data/projects';
 
 const ProjectPage = forwardRef((props, ref) => {
-  const [selectedIdx, setSelectedIdx] = useState(0);
-  const { open, setOpen } = useThemeContext();
+  const [selectedIdx, setSelectedIdx] = useState(null);
+
+  const selected = selectedIdx === null ? null : projs[selectedIdx];
 
   return (
-    <div ref={ref}>
-      <Title text={'PROJECTS'} width={'12%'} />
-      <br />
-      <Grid
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'row', sm: 'row' },
-          p: 1,
-          // m: 1,
-          borderRadius: 1,
-          flexWrap: 'wrap',
-        }}
-        container
-        spacing={1}
-      >
-        {projs.map((elem, i) => {
-          const delay = parseInt(i / 2) * 0.2;
+    <section ref={ref} data-section aria-labelledby="projects-title">
+      <Title id="projects-title" text={'PROJECTS'} />
 
-          return (
-            <Grid item xs={6} sm={3} md={3}>
-              <Animate delay={delay}>
-                <ProjectCard
-                  media={elem['image']}
-                  title={elem['title']}
-                  setOpen={setOpen}
-                  idx={i}
-                  setSelectedIdx={setSelectedIdx}
-                />
-              </Animate>
-            </Grid>
-          );
-        })}
-        <DetailModal
-          open={open}
-          setOpen={setOpen}
-          title={projs[selectedIdx]['title']}
-          img={projs[selectedIdx]['image']}
-          content={projs[selectedIdx]['content']}
-          tags={projs[selectedIdx]['tags']}
-        />
+      <Grid container spacing={2}>
+        {projs.map((proj, i) => (
+          <Grid item xs={6} sm={4} md={3} key={proj.title}>
+            {/* 행 단위로 지연시켜 순차적으로 나타나게 한다 */}
+            <Animate delay={Math.floor(i / 4) * 0.12}>
+              <ProjectCard media={proj.image} title={proj.title} onOpen={() => setSelectedIdx(i)} />
+            </Animate>
+          </Grid>
+        ))}
       </Grid>
-    </div>
+
+      {selected && (
+        <DetailModal
+          open={selectedIdx !== null}
+          setOpen={(v) => !v && setSelectedIdx(null)}
+          title={selected.title}
+          img={selected.image}
+          content={selected.content}
+          tags={selected.tags}
+        />
+      )}
+    </section>
   );
 });
+
+ProjectPage.displayName = 'ProjectPage';
 
 export default ProjectPage;

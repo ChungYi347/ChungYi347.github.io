@@ -1,56 +1,26 @@
-import * as React from 'react';
-import { css } from '@emotion/react';
-import { Card, CardActions, CardContent, CardMedia } from '@mui/material';
-import { Button, Grid, Link, Typography, Box } from '@mui/material';
-import { motion } from 'framer-motion';
-
+import React from 'react';
+import { Typography, Box } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 import ApartmentIcon from '@mui/icons-material/Apartment';
+
 import { useThemeContext } from '../contexts/ThemeContext';
 
 const ExperienceItem = ({ type, title, content }) => {
-  const { isLight } = useThemeContext();
+  const { colors } = useThemeContext();
+  const Icon = type === 'SCHOOL' ? SchoolIcon : ApartmentIcon;
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        // justifyContent: 'center',
-        marginTop: 2,
-      }}
-    >
-      {type === 'SCHOOL' ? (
-        <>
-          <SchoolIcon
-            fontSize={'large'}
-            // sx={{ fontSize: { xs: 'large', sm: 'medium' } }}
-          />
-        </>
-      ) : (
-        <ApartmentIcon fontSize={'large'} />
-      )}
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'left',
-          flexDirection: 'column',
-          // justifyContent: 'center',
-        }}
-      >
-        <>
-          <Typography marginLeft={1} fontWeight={500} variant="h6" align="left">
-            {title}
+    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5, mt: 2 }}>
+      <Icon sx={{ color: colors.accent, fontSize: 26, flexShrink: 0, mt: '2px' }} aria-hidden="true" />
+      <Box sx={{ minWidth: 0 }}>
+        <Typography variant="body1" sx={{ fontWeight: 600 }}>
+          {title}
+        </Typography>
+        {content.split('\n').map((line, i) => (
+          <Typography key={i} variant="body2" color="text.secondary">
+            {line}
           </Typography>
-          {content.split('\n').map((elem) => {
-            console.log(elem);
-            return (
-              <Typography marginLeft={1} color={isLight ? 'text.primary' : 'white'} variant="h6" align="left">
-                {elem}
-              </Typography>
-            );
-          })}
-        </>
+        ))}
       </Box>
     </Box>
   );
