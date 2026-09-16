@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 
 import Animate from './Animate';
 import MediaLightbox from './MediaLightbox';
+import { topicLabel, topicStyle } from '../data/topics';
 import { useThemeContext } from '../contexts/ThemeContext';
 
 const ME = 'Chunggi Lee';
@@ -378,8 +379,8 @@ const Thumbnail = ({ media, poster, title, onExpand }) => {
   );
 };
 
-const PublicationCard = ({ media, poster, title, author, conference, tags }) => {
-  const { colors } = useThemeContext();
+const PublicationCard = ({ media, poster, title, author, conference, tags, topics = [] }) => {
+  const { colors, isLight } = useThemeContext();
   const [zoomed, setZoomed] = useState(false);
 
   return (
@@ -413,7 +414,53 @@ const PublicationCard = ({ media, poster, title, author, conference, tags }) => 
             <ConferenceLine conference={conference} colors={colors} />
           </Box>
 
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1.5 }}>
+          {/*
+            주제 라벨.
+
+            아래 PDF/Video 칩은 '누를 수 있는 것'이라 강조색을 쓴다. 이 라벨은
+            누를 수 없으므로 같은 색을 쓰면 안 된다 — HIG(Color)가 명시한다:
+            "같은 색을 서로 다른 의미로 쓰지 말 것. 강조색이 상호작용을 뜻한다면
+            비상호작용 텍스트에 같은 색을 쓰는 것은 혼란스럽다."
+            그래서 중립 회색 채움에 커서도 바꾸지 않는다.
+          */}
+          {topics.length > 0 && (
+            <Box
+              component="ul"
+              aria-label="Research topics"
+              sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, p: 0, m: 0, mt: 1.25, listStyle: 'none' }}
+            >
+              {topics.map((key) => {
+                const tone = topicStyle(key, isLight);
+                return (
+                  <Box
+                    component="li"
+                    key={key}
+                    sx={{
+                      fontSize: '0.75rem',
+                      fontWeight: 650,
+                      letterSpacing: '0.01em',
+                      lineHeight: 1.4,
+                      px: 1,
+                      py: 0.375,
+                      /*
+                        링크 칩은 알약(999px), 라벨은 각진 사각(6px)이다.
+                        색만이 아니라 모양으로도 '누를 수 있는 것'과 갈라 둔다.
+                      */
+                      borderRadius: '6px',
+                      color: tone.fg,
+                      backgroundColor: tone.tint,
+                      // Increase Contrast 설정에서는 더 진한 값으로 (7:1 이상)
+                      '@media (prefers-contrast: more)': { color: tone.hc },
+                    }}
+                  >
+                    {topicLabel(key)}
+                  </Box>
+                );
+              })}
+            </Box>
+          )}
+
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1.75 }}>
             {tags.map((tag) => (
               <Chip
                 key={tag.link || tag.tag}

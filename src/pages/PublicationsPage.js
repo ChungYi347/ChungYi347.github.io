@@ -18,6 +18,7 @@ const PublicationsPage = forwardRef((props, ref) => (
           conference={pub.conference}
           title={pub.title}
           tags={pub.tags}
+          topics={pub.topics}
         />
       ))}
     </Box>
