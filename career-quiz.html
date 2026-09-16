@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>진로 유형 테스트 · 취업 vs 대학원 / 국내 vs 해외</title>
+<style>
+  /* ============================================================
+     Apple HIG 기반 · 시맨틱 시스템 컬러 (라이트/다크 자동 + 토글)
+     ============================================================ */
+  :root {
+    color-scheme: light dark;
+
+    /* --- system colors (light) --- */
+    --blue:   #007AFF;
+    --green:  #34C759;
+    --red:    #FF3B30;
+    --orange: #FF9500;
+    --teal:   #30B0C7;
+    --indigo: #5856D6;
+    --purple: #AF52DE;
+
+    /* --- surfaces & text (light) --- */
+    --bg-1: #F2F2F7;                 /* systemGroupedBackground */
+    --bg-2: #FFFFFF;
+    --glass: rgba(255,255,255,.68);  /* Liquid Glass */
+    --glass-brd: rgba(255,255,255,.6);
+    --label: #1C1C1E;
+    --label-2: rgba(60,60,67,.6);    /* secondaryLabel */
+    --label-3: rgba(60,60,67,.3);
+    --separator: rgba(60,60,67,.18);
+    --fill: rgba(120,120,128,.12);   /* tertiarySystemFill */
+    --fill-2: rgba(120,120,128,.08);
+    --shadow: 0 10px 40px rgba(0,0,0,.12);
+
+    /* quadrant roles */
+    --q-bl: var(--orange);  /* 국내 취업 */
+    --q-br: var(--teal);    /* 해외 취업 */
+    --q-tl: var(--indigo);  /* 국내 대학원 */
+    --q-tr: var(--green);   /* 해외 대학원 */
+
+    /* motion */
+    --t: .26s;
+    --spring: cubic-bezier(.5,1.4,.5,1);
+  }
+
+  :root[data-theme="dark"],
+  :root:not([data-theme="light"]) {
+    /* fallback dark applied when system is dark and no explicit light */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --_dark: 1; }
+  }
+  /* Dark palette — applied via [data-theme="dark"] OR system-dark(no light) */
+  :root[data-theme="dark"],
+  :root:not([data-theme="light"]) {
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --blue:#0A84FF; --green:#30D158; --red:#FF453A; --orange:#FF9F0A;
+      --teal:#40CBE0; --indigo:#5E5CE6; --purple:#BF5AF2;
+      --bg-1:#000000; --bg-2:#1C1C1E;
+      --glass: rgba(28,28,30,.6); --glass-brd: rgba(255,255,255,.08);
+      --label:#FFFFFF; --label-2: rgba(235,235,245,.6); --label-3: rgba(235,235,245,.3);
+      --separator: rgba(84,84,88,.5);
+      --fill: rgba(120,120,128,.24); --fill-2: rgba(120,120,128,.16);
+      --shadow: 0 10px 40px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --blue:#0A84FF; --green:#30D158; --red:#FF453A; --orange:#FF9F0A;
+    --teal:#40CBE0; --indigo:#5E5CE6; --purple:#BF5AF2;
+    --bg-1:#000000; --bg-2:#1C1C1E;
+    --glass: rgba(28,28,30,.6); --glass-brd: rgba(255,255,255,.08);
+    --label:#FFFFFF; --label-2: rgba(235,235,245,.6); --label-3: rgba(235,235,245,.3);
+    --separator: rgba(84,84,88,.5);
+    --fill: rgba(120,120,128,.24); --fill-2: rgba(120,120,128,.16);
+    --shadow: 0 10px 40px rgba(0,0,0,.5);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(60% 40% at 15% 0%, color-mix(in srgb, var(--indigo) 16%, transparent), transparent 60%),
+      radial-gradient(50% 40% at 100% 20%, color-mix(in srgb, var(--teal) 14%, transparent), transparent 60%),
+      var(--bg-1);
+    background-attachment: fixed;
+    color: var(--label);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+      system-ui, "Apple SD Gothic Neo", "Noto Sans KR", Roboto, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 24px 20px 64px; }
+
+  /* ---- top bar ---- */
+  .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+  .brand { font-size: 15px; font-weight: 600; color: var(--label-2); letter-spacing: -0.01em; }
+  .theme-btn {
+    width: 40px; height: 40px; border-radius: 999px; border: none; cursor: pointer;
+    background: var(--fill); color: var(--label); font-size: 18px; line-height: 1;
+    display: grid; place-items: center; transition: transform var(--t) var(--spring), background .2s;
+  }
+  .theme-btn:hover { background: var(--fill); }
+  .theme-btn:active { transform: scale(.88); }
+
+  header { text-align: center; margin-bottom: 24px; }
+  header h1 { font-size: 32px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.02em; }
+  header p { color: var(--label-2); margin: 0; font-size: 16px; }
+
+  /* ---- glass card (Liquid Glass) ---- */
+  .card {
+    background: var(--glass);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+    backdrop-filter: saturate(180%) blur(24px);
+    border: 1px solid var(--glass-brd);
+    border-radius: 28px;                 /* concentric outer */
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+  }
+
+  /* ---- progress ---- */
+  .dots { display: flex; gap: 6px; margin-bottom: 8px; }
+  .dot {
+    flex: 1; height: 6px; border-radius: 999px; background: var(--fill);
+    cursor: default; transition: background var(--t), transform var(--t) var(--spring);
+  }
+  .dot.done { background: var(--blue); }
+  .dot.cur { background: var(--blue); transform: scaleY(1.6); cursor: pointer; }
+  .dot.answered { cursor: pointer; }
+  .progress-text { color: var(--label-2); font-size: 13px; text-align: right; margin-bottom: 12px; }
+
+  /* ---- question ---- */
+  .q-index { color: var(--blue); font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+  .q-text {
+    font-size: 24px; font-weight: 600; margin: 10px 0 28px; letter-spacing: -0.015em;
+    min-height: 72px; line-height: 1.32;
+  }
+  .stage.anim-r { animation: slideR var(--t) var(--spring); }
+  .stage.anim-l { animation: slideL var(--t) var(--spring); }
+  @keyframes slideR { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+  @keyframes slideL { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: none; } }
+
+  .yn { display: flex; gap: 12px; }
+  .yn button {
+    flex: 1; padding: 22px 0; font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+    border-radius: 20px;                 /* concentric inner < 28 */
+    cursor: pointer; border: 1.5px solid transparent;
+    color: var(--label); transition: transform .12s var(--spring), background .18s, border-color .18s, color .18s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .yn .em { display: block; font-size: 26px; margin-bottom: 6px; }
+  .yn .yes { background: color-mix(in srgb, var(--green) 14%, transparent); }
+  .yn .no  { background: color-mix(in srgb, var(--red) 14%, transparent); }
+  .yn .yes:hover { border-color: var(--green); }
+  .yn .no:hover  { border-color: var(--red); }
+  .yn button:active { transform: scale(.94); }
+  .yn .yes.sel { background: var(--green); color: #fff; border-color: var(--green); }
+  .yn .no.sel  { background: var(--red);  color: #fff; border-color: var(--red); }
+  .yn .sel { animation: pop .3s var(--spring); }
+  @keyframes pop { 0%{transform:scale(1);} 45%{transform:scale(1.06);} 100%{transform:scale(1);} }
+
+  .foot { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; gap: 12px; }
+  .btn {
+    font: inherit; font-size: 15px; font-weight: 600; border-radius: 999px; padding: 10px 18px;
+    cursor: pointer; border: none; background: var(--fill); color: var(--label);
+    transition: transform .12s var(--spring), background .18s;
+  }
+  .btn:hover:not(:disabled) { background: var(--fill); }
+  .btn:active:not(:disabled) { transform: scale(.94); }
+  .btn:disabled { opacity: .35; cursor: not-allowed; }
+  .btn.primary { background: var(--blue); color: #fff; }
+  .hint { color: var(--label-3); font-size: 13px; }
+  .kbd { font-size: 12px; color: var(--label-3); }
+  .kbd b { color: var(--label-2); font-weight: 600; padding: 1px 6px; border-radius: 6px; background: var(--fill); }
+
+  .intro-list { color: var(--label-2); font-size: 15px; padding-left: 20px; }
+  .intro-list li { margin-bottom: 4px; }
+
+  .hidden { display: none; }
+
+  /* ---- result ---- */
+  .r-badge { display: block; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--label-2); }
+  .r-title { text-align: center; font-size: 30px; font-weight: 700; margin: 8px 0 4px; letter-spacing: -0.02em; }
+  .r-sub { text-align: center; color: var(--label-2); font-size: 15px; margin-bottom: 4px; }
+
+  .chart-holder { position: relative; margin: 52px auto 44px; width: 100%; max-width: 380px; aspect-ratio: 1/1; }
+  .quad {
+    position: absolute; inset: 0; display: grid;
+    grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+    border-radius: 24px; overflow: hidden; border: 1px solid var(--separator);
+  }
+  .quad > div {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 4px; font-weight: 600; font-size: 13px; text-align: center; opacity: .32;
+    transition: opacity .4s;
+  }
+  .cell-emoji { font-size: 24px; }
+  .c-tl { background: color-mix(in srgb, var(--q-tl) 14%, transparent); color: var(--q-tl); }
+  .c-tr { background: color-mix(in srgb, var(--q-tr) 14%, transparent); color: var(--q-tr); }
+  .c-bl { background: color-mix(in srgb, var(--q-bl) 14%, transparent); color: var(--q-bl); }
+  .c-br { background: color-mix(in srgb, var(--q-br) 14%, transparent); color: var(--q-br); }
+  .quad > div.active { opacity: 1; }
+
+  .axis-label { position: absolute; color: var(--label-2); font-size: 12px; font-weight: 600; }
+  .axis-top { top: -24px; left: 50%; transform: translateX(-50%); }
+  .axis-bottom { bottom: -24px; left: 50%; transform: translateX(-50%); }
+  .axis-left { left: -12px; top: 50%; transform: translate(-100%,-50%); }
+  .axis-right { right: -12px; top: 50%; transform: translate(100%,-50%); }
+
+  .marker {
+    position: absolute; left: 50%; top: 50%; width: 24px; height: 24px; border-radius: 50%;
+    background: #fff; border: 3px solid var(--blue);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--blue) 25%, transparent), 0 6px 18px rgba(0,0,0,.4);
+    transform: translate(-50%,-50%); transition: left .7s var(--spring), top .7s var(--spring); z-index: 3;
+  }
+  .cross-v, .cross-h { position: absolute; background: var(--separator); z-index: 2; }
+  .cross-v { width: 1px; top: 0; bottom: 0; left: 50%; }
+  .cross-h { height: 1px; left: 0; right: 0; top: 50%; }
+
+  .scores { display: flex; gap: 12px; margin-top: 16px; }
+  .score-box { flex: 1; background: var(--fill-2); border-radius: 16px; padding: 14px 16px; }
+  .score-box .label { font-size: 12px; color: var(--label-2); margin-bottom: 10px; }
+  .bar { height: 8px; background: var(--fill); border-radius: 999px; position: relative; overflow: hidden; }
+  .bar-fill { position: absolute; top: 0; bottom: 0; border-radius: 999px; width: 0; transition: width .8s var(--spring), left .8s var(--spring), right .8s var(--spring); }
+  .lead { display: flex; justify-content: space-between; font-size: 13px; margin-top: 8px; color: var(--label-2); }
+  .lead .on { color: var(--label); font-weight: 700; }
+
+  .desc { background: var(--fill-2); border-radius: 20px; padding: 20px; margin-top: 20px; }
+  .desc h3 { margin: 0 0 8px; font-size: 17px; font-weight: 600; }
+  .desc p { margin: 0 0 12px; color: var(--label-2); font-size: 15px; }
+  .desc ul { margin: 0; padding-left: 20px; color: var(--label-2); font-size: 14px; }
+  .desc li { margin-bottom: 6px; }
+
+  .r-actions { display: flex; gap: 12px; justify-content: center; margin-top: 24px; }
+  .disclaimer { color: var(--label-3); font-size: 12.5px; text-align: center; margin-top: 16px; }
+
+  footer { text-align: center; color: var(--label-3); font-size: 12px; margin-top: 28px; }
+
+  canvas#confetti { position: fixed; inset: 0; pointer-events: none; z-index: 50; }
+
+  /* ---- 접근성: Reduce Motion ---- */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    .marker { transition: none; }
+  }
+
+  @media (max-width: 420px) {
+    header h1 { font-size: 27px; }
+    .q-text { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<div class="wrap">
+  <div class="topbar">
+    <span class="brand">🧭 진로 유형 테스트</span>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="테마 전환">🌙</button>
+  </div>
+
+  <header>
+    <h1>나의 진로 유형</h1>
+    <p>12개의 질문 · <b>취업 vs 대학원 · 국내 vs 해외</b></p>
+  </header>
+
+  <!-- INTRO -->
+  <section id="intro" class="card">
+    <div class="q-text" style="min-height:auto; margin-bottom:12px;">시작하기 전에</div>
+    <p style="color:var(--label-2); margin-top:0;">
+      각 문장을 읽고 <b>예 / 아니오</b>로 답해주세요. 정답은 없어요. 지금 이 순간의 솔직한
+      마음으로 고르면 됩니다. 결과는 <b>4가지 진로 유형</b> 중 하나로 나와요.
+    </p>
+    <ul class="intro-list">
+      <li>🧑‍💼 국내 취업 · 🌏 해외 취업</li>
+      <li>🎓 국내 대학원 · 🛫 해외 대학원</li>
+    </ul>
+    <p class="kbd" style="margin:16px 0 0;">💡 키보드: <b>Y</b>/<b>1</b> 예 · <b>N</b>/<b>2</b> 아니오 · <b>←</b> 이전</p>
+    <div class="foot" style="justify-content:flex-end;">
+      <button class="btn primary" onclick="start()">테스트 시작 →</button>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="hidden">
+    <div class="dots" id="dots"></div>
+    <div class="progress-text" id="ptext">1 / 12</div>
+    <div class="card">
+      <div class="stage" id="stage">
+        <span class="q-index" id="qindex">QUESTION 01</span>
+        <div class="q-text" id="qtext"></div>
+        <div class="yn">
+          <button class="yes" id="btnYes" onclick="answer('yes')"><span class="em">⭕️</span>예</button>
+          <button class="no" id="btnNo" onclick="answer('no')"><span class="em">❌</span>아니오</button>
+        </div>
+      </div>
+      <div class="foot">
+        <button class="btn" id="prevBtn" onclick="prev()">← 이전</button>
+        <span class="hint" id="hint">예 / 아니오를 선택하세요</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" class="hidden">
+    <div class="card">
+      <span class="r-badge">YOUR TYPE</span>
+      <div class="r-title" id="rtitle"></div>
+      <div class="r-sub" id="rsub"></div>
+
+      <div class="chart-holder">
+        <div class="axis-label axis-top">🎓 대학원</div>
+        <div class="axis-label axis-bottom">🧑‍💼 취업</div>
+        <div class="axis-label axis-left">국내</div>
+        <div class="axis-label axis-right">해외</div>
+        <div class="quad">
+          <div class="c-tl" id="cell-tl"><span class="cell-emoji">🎓</span>국내 대학원</div>
+          <div class="c-tr" id="cell-tr"><span class="cell-emoji">🛫</span>해외 대학원</div>
+          <div class="c-bl" id="cell-bl"><span class="cell-emoji">🧑‍💼</span>국내 취업</div>
+          <div class="c-br" id="cell-br"><span class="cell-emoji">🌏</span>해외 취업</div>
+        </div>
+        <div class="cross-v"></div>
+        <div class="cross-h"></div>
+        <div class="marker" id="marker"></div>
+      </div>
+
+      <div class="scores">
+        <div class="score-box">
+          <div class="label">진로 방향</div>
+          <div class="bar"><div class="bar-fill" id="bar-career"></div></div>
+          <div class="lead"><span id="lead-career-l">취업</span><span id="lead-career-r">대학원</span></div>
+        </div>
+        <div class="score-box">
+          <div class="label">활동 무대</div>
+          <div class="bar"><div class="bar-fill" id="bar-region"></div></div>
+          <div class="lead"><span id="lead-region-l">국내</span><span id="lead-region-r">해외</span></div>
+        </div>
+      </div>
+
+      <div class="desc">
+        <h3 id="dtitle"></h3>
+        <p id="ddesc"></p>
+        <ul id="dtips"></ul>
+      </div>
+
+      <div class="r-actions">
+        <button class="btn" onclick="restart()">🔄 다시 하기</button>
+        <button class="btn primary" onclick="shareResult()">📋 결과 복사</button>
+      </div>
+      <p class="disclaimer">※ 재미로 보는 진로 성향 참고용이에요. 최종 결정은 당신의 몫! 🙂</p>
+    </div>
+  </section>
+
+  <footer>made with ☕ · Apple HIG style</footer>
+</div>
+
+<script>
+/* ==================================================================
+   질문 데이터 — career-quiz-questions.json 과 동일 (내장 fallback)
+   career: 음수=취업 / 양수=대학원 · region: 음수=국내 / 양수=해외
+================================================================== */
+const EMBEDDED = { questions: [
+  { id:1,  category:"대학원", axis:"career", question:"나는 약간 부당해도 괜찮다.", yes:{career:2,region:0}, no:{career:-1,region:0} },
+  { id:2,  category:"취업",   axis:"career", question:"공부보다 돈!", yes:{career:-2,region:0}, no:{career:1,region:0} },
+  { id:3,  category:"대학원", axis:"career", question:"나는 방치되어 있어서 알아서 잘한다.", yes:{career:2,region:0}, no:{career:-1,region:0} },
+  { id:4,  category:"취업",   axis:"career", question:"나는 효율적이고 실용적인걸 좋아한다.", yes:{career:-2,region:0}, no:{career:1,region:0} },
+  { id:5,  category:"대학원", axis:"career", question:"나는 존버를 잘한다.", yes:{career:2,region:0}, no:{career:-1,region:0} },
+  { id:6,  category:"취업",   axis:"career", question:"시키는 일을 하는게 좋다.", yes:{career:-2,region:0}, no:{career:1,region:0} },
+  { id:7,  category:"해외",   axis:"region", question:"영어를 잘한다. 혹은 나는 일단 저지르고 생각한다.", yes:{career:0,region:2}, no:{career:0,region:-1} },
+  { id:8,  category:"국내",   axis:"region", question:"나는 뜨거운 혹은 불속성 효자/효녀이다.", yes:{career:0,region:-2}, no:{career:0,region:1} },
+  { id:9,  category:"해외",   axis:"region", question:"모르는 사람이 말걸어도 좋다. 혹은 모르는 사람이랑 하루종일 이야기할 수 있다.", yes:{career:0,region:2}, no:{career:0,region:-1} },
+  { id:10, category:"국내",   axis:"region", question:"나는 극 안정형이다.", yes:{career:0,region:-2}, no:{career:0,region:1} },
+  { id:11, category:"해외",   axis:"region", question:"나는 핵인싸다. 운동 혹은 악기등 좋아한다.", yes:{career:0,region:2}, no:{career:0,region:-1} },
+  { id:12, category:"국내",   axis:"region", question:"뭘 고생하냐? 여행도 싫고 집이 좋다.", yes:{career:0,region:-2}, no:{career:0,region:1} },
+]};
+
+const TYPES = {
+  "국내취업": { key:"bl", title:"🧑‍💼 국내 취업형", sub:"실전에서 빛나는 국내 커리어 빌더",
+    desc:"당신은 배움보다 실행, 이론보다 결과에서 에너지를 얻는 타입이에요. 익숙한 환경에서 빠르게 경력을 쌓고 실무 전문가로 성장하는 길이 잘 맞습니다.",
+    tips:["인턴·현업 프로젝트로 실무 감각을 빠르게 쌓아보세요.","포트폴리오/직무 역량 중심으로 커리어를 설계해보세요.","도메인 전문성 + 리더십을 함께 키워보세요."] },
+  "해외취업": { key:"br", title:"🌏 해외 취업형", sub:"넓은 무대를 노리는 글로벌 실무가",
+    desc:"당신은 실무로 승부하되 무대는 세계로 넓히고 싶은 타입이에요. 새로운 환경에서 도전하는 걸 즐기고, 글로벌 기업·해외 시장에서 커리어를 키우는 길이 잘 맞습니다.",
+    tips:["외국어 실무 커뮤니케이션 역량을 꾸준히 다져보세요.","글로벌 채용 트랙(현지/주재원/원격)을 리서치해보세요.","국제적으로 통하는 기술 스택·자격을 우선순위에 두세요."] },
+  "국내대학원": { key:"tl", title:"🎓 국내 대학원형", sub:"깊이로 승부하는 국내 연구자",
+    desc:"당신은 문제의 근본을 파고드는 걸 즐기는 연구자 기질이에요. 익숙한 환경에서 안정적으로 학문적 깊이를 쌓아가는 길이 잘 맞습니다.",
+    tips:["관심 분야 랩(Lab)과 지도교수를 일찍 탐색해보세요.","학부 연구생·논문 경험으로 연구 적성을 확인해보세요.","국내 학위 후 해외 포닥/취업으로 확장도 가능해요."] },
+  "해외대학원": { key:"tr", title:"🛫 해외 대학원형", sub:"세계를 무대로 파고드는 개척형 연구자",
+    desc:"당신은 깊이 있는 연구를 세계 최고 환경에서 해보고 싶은 타입이에요. 낯선 환경을 성장의 기회로 여기고, 글로벌 학계·연구 네트워크 속에서 확장하는 길이 잘 맞습니다.",
+    tips:["영어 논문·에세이·추천서 등 유학 준비를 미리 시작해보세요.","관심 분야 해외 연구 그룹·교수를 리스트업 해보세요.","장학금·펀딩·인턴십 기회를 적극적으로 찾아보세요."] },
+};
+
+/* ---------------- state ---------------- */
+let QUESTIONS = EMBEDDED.questions;
+let cur = 0;
+let answers = [];
+let lastType = null;
+const $ = (id) => document.getElementById(id);
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------------- theme ---------------- */
+(function initTheme() {
+  let saved = null;
+  try { saved = localStorage.getItem("cq-theme"); } catch (e) {}
+  if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  syncThemeIcon();
+})();
+function currentTheme() {
+  const attr = document.documentElement.getAttribute("data-theme");
+  if (attr) return attr;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+function toggleTheme() {
+  const next = currentTheme() === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  try { localStorage.setItem("cq-theme", next); } catch (e) {}
+  syncThemeIcon();
+}
+function syncThemeIcon() { $("themeBtn").textContent = currentTheme() === "dark" ? "☀️" : "🌙"; }
+
+/* ------------- load JSON (웹서버 서빙 시 우선) ------------- */
+async function loadData() {
+  try {
+    const res = await fetch("career-quiz-questions.json", { cache: "no-store" });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.questions && data.questions.length) QUESTIONS = data.questions;
+    }
+  } catch (e) {}
+  answers = new Array(QUESTIONS.length).fill(null);
+  buildDots();
+}
+loadData();
+
+/* ---------------- flow ---------------- */
+function start() {
+  $("intro").classList.add("hidden");
+  $("quiz").classList.remove("hidden");
+  render(1);
+}
+
+function buildDots() {
+  const box = $("dots");
+  box.innerHTML = "";
+  QUESTIONS.forEach((_, i) => {
+    const d = document.createElement("div");
+    d.className = "dot";
+    d.onclick = () => { if (answers[i] !== null || i <= maxReached()) { cur = i; render(i < cur ? -1 : 1); } };
+    box.appendChild(d);
+  });
+}
+function maxReached() { let m = 0; answers.forEach((a, i) => { if (a !== null) m = Math.max(m, i + 1); }); return m; }
+
+function render(dir) {
+  const item = QUESTIONS[cur];
+  $("qindex").textContent = "QUESTION " + String(cur + 1).padStart(2, "0");
+  $("qtext").textContent = item.question;
+  $("ptext").textContent = (cur + 1) + " / " + QUESTIONS.length;
+
+  // dots
+  [...$("dots").children].forEach((d, i) => {
+    d.className = "dot"
+      + (answers[i] !== null ? " done answered" : "")
+      + (i === cur ? " cur" : "");
+  });
+
+  // selected state
+  $("btnYes").classList.toggle("sel", answers[cur] === "yes");
+  $("btnNo").classList.toggle("sel", answers[cur] === "no");
+
+  $("prevBtn").disabled = cur === 0;
+  $("hint").textContent = answers[cur]
+    ? (cur === QUESTIONS.length - 1 ? "마지막! 답하면 결과로 →" : "다음 질문으로…")
+    : "예 / 아니오를 선택하세요";
+
+  // slide animation
+  if (!reduce && dir) {
+    const s = $("stage");
+    s.classList.remove("anim-l", "anim-r");
+    void s.offsetWidth; // reflow to replay
+    s.classList.add(dir < 0 ? "anim-l" : "anim-r");
+  }
+}
+
+function answer(val) {
+  answers[cur] = val;
+  render(0);
+  buzz(8);
+  setTimeout(() => {
+    if (cur < QUESTIONS.length - 1) { cur++; render(1); }
+    else showResult();
+  }, reduce ? 0 : 300);
+}
+
+function prev() { if (cur > 0) { cur--; render(-1); } }
+
+function buzz(ms) { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) {} }
+
+/* ---------------- result ---------------- */
+function showResult() {
+  let career = 0, region = 0;
+  answers.forEach((val, qi) => { const w = QUESTIONS[qi][val] || {career:0,region:0}; career += w.career; region += w.region; });
+
+  let maxC = 0, maxR = 0;
+  QUESTIONS.forEach((q) => {
+    maxC += Math.max(Math.abs(q.yes.career), Math.abs(q.no.career));
+    maxR += Math.max(Math.abs(q.yes.region), Math.abs(q.no.region));
+  });
+  const cN = maxC ? career / maxC : 0;   // -1..1
+  const rN = maxR ? region / maxR : 0;
+
+  const isGrad = cN >= 0, isOverseas = rN >= 0;
+  let key = isGrad ? (isOverseas ? "해외대학원" : "국내대학원") : (isOverseas ? "해외취업" : "국내취업");
+  const t = TYPES[key];
+  lastType = t;
+
+  $("quiz").classList.add("hidden");
+  $("result").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+
+  $("rtitle").textContent = t.title;
+  $("rsub").textContent = t.sub;
+  $("dtitle").textContent = t.title + " 에게 추천해요";
+  $("ddesc").textContent = t.desc;
+  const ul = $("dtips"); ul.innerHTML = "";
+  t.tips.forEach((tip) => { const li = document.createElement("li"); li.textContent = tip; ul.appendChild(li); });
+
+  ["tl","tr","bl","br"].forEach((k) => $("cell-" + k).classList.remove("active"));
+  $("cell-" + t.key).classList.add("active");
+
+  // marker + bars (약간 지연 후 스프링 애니메이션)
+  const x = (rN + 1) / 2 * 100, y = (1 - (cN + 1) / 2) * 100;
+  const marker = $("marker");
+  marker.style.left = "50%"; marker.style.top = "50%";
+  setTimeout(() => { marker.style.left = x + "%"; marker.style.top = y + "%"; }, reduce ? 0 : 120);
+
+  setBar("bar-career", cN); setBar("bar-region", rN);
+  // lead 강조
+  $("lead-career-l").className = cN < 0 ? "on" : "";
+  $("lead-career-r").className = cN >= 0 ? "on" : "";
+  $("lead-region-l").className = rN < 0 ? "on" : "";
+  $("lead-region-r").className = rN >= 0 ? "on" : "";
+
+  buzz(20);
+  if (!reduce) confetti();
+}
+
+function setBar(id, value) {
+  const el = $(id);
+  const mag = Math.min(Math.abs(value), 1) * 50;
+  el.style.width = "0";
+  requestAnimationFrame(() => {
+    if (value >= 0) { el.style.left = "50%"; el.style.right = "auto"; el.style.background = "var(--blue)"; }
+    else { el.style.right = "50%"; el.style.left = "auto"; el.style.background = "var(--indigo)"; }
+    el.style.width = mag + "%";
+  });
+}
+
+function shareResult() {
+  if (!lastType) return;
+  const txt = "나의 진로 유형은 " + lastType.title + " — " + lastType.sub + " 🧭";
+  try {
+    navigator.clipboard.writeText(txt);
+    const b = event.target; const o = b.textContent; b.textContent = "✅ 복사됨!";
+    setTimeout(() => { b.textContent = o; }, 1500);
+  } catch (e) { alert(txt); }
+}
+
+function restart() {
+  cur = 0;
+  answers = new Array(QUESTIONS.length).fill(null);
+  $("result").classList.add("hidden");
+  $("intro").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+}
+
+/* ---------------- keyboard ---------------- */
+document.addEventListener("keydown", (e) => {
+  if (!$("quiz").classList.contains("hidden")) {
+    const k = e.key.toLowerCase();
+    if (k === "y" || k === "1") { e.preventDefault(); answer("yes"); }
+    else if (k === "n" || k === "2") { e.preventDefault(); answer("no"); }
+    else if (e.key === "ArrowLeft" || e.key === "Backspace") { e.preventDefault(); prev(); }
+  } else if (!$("intro").classList.contains("hidden")) {
+    if (e.key === "Enter") start();
+  }
+});
+
+/* ---------------- confetti (경량, 캔버스) ---------------- */
+function confetti() {
+  const cv = $("confetti"), ctx = cv.getContext("2d");
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  cv.width = innerWidth * dpr; cv.height = innerHeight * dpr; ctx.scale(dpr, dpr);
+  const colors = ["#007AFF","#34C759","#FF9500","#FF3B30","#AF52DE","#30B0C7"];
+  const N = 90, parts = [];
+  for (let i = 0; i < N; i++) parts.push({
+    x: innerWidth / 2, y: innerHeight * 0.3,
+    vx: (Math.random() - 0.5) * 12, vy: Math.random() * -12 - 4,
+    s: Math.random() * 7 + 4, c: colors[i % colors.length],
+    rot: Math.random() * 6, vr: (Math.random() - 0.5) * 0.4, life: 0,
+  });
+  let raf;
+  function tick() {
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    let alive = false;
+    parts.forEach((p) => {
+      p.vy += 0.35; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life++;
+      if (p.y < innerHeight + 20) alive = true;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.fillStyle = p.c; ctx.globalAlpha = Math.max(0, 1 - p.life / 120);
+      ctx.fillRect(-p.s / 2, -p.s / 2, p.s, p.s * 0.6); ctx.restore();
+    });
+    if (alive) raf = requestAnimationFrame(tick);
+    else ctx.clearRect(0, 0, innerWidth, innerHeight);
+  }
+  tick();
+}
+</script>
+</body>
+</html>

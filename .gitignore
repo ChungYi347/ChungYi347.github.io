@@ -1,3 +1,16 @@
+# Mac OS 시스템 파일 (가장 먼저 추가!)
+.DS_Store
+src/.DS_Store
+src/assets/.DS_Store
+*/.DS_Store
+
+yarn.lock
+package-lock.json
+
+node_modules/
+build/
+dist/
+
 .idea
 dist
 node_modules

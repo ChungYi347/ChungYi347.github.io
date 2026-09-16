@@ -1,37 +1,30 @@
 import React, { forwardRef } from 'react';
-import { css } from '@emotion/react';
+import { Box } from '@mui/material';
+
 import Title from '../layouts/Title';
-import me from '../assets/images/me.png';
-import { Typography, Box, Grid, Link } from '@mui/material';
 import PublicationCard from '../components/PublicationCard';
 import pubs from '../data/publications';
 
-const PublicationsPage = forwardRef((props, ref) => {
-  return (
-    <div ref={ref}>
-      <Title text={'PUBLICATIONS'} width={'25%'} />
-      <br />
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          p: 1,
-          m: 1,
-          borderRadius: 1,
-        }}
-      >
-        {pubs.map((elem) => (
-          <PublicationCard
-            media={elem['image']}
-            author={elem['author']}
-            conference={elem['conference']}
-            title={elem['title']}
-            tags={elem['tags']}
-          />
-        ))}
-      </Box>
-    </div>
-  );
-});
+const PublicationsPage = forwardRef((props, ref) => (
+  <section ref={ref} data-section aria-labelledby="publications-title">
+    <Title id="publications-title" text={'PUBLICATIONS'} />
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      {pubs.map((pub) => (
+        <PublicationCard
+          key={`${pub.title}-${pub.conference}`}
+          media={pub.image}
+          poster={pub.poster}
+          author={pub.author}
+          conference={pub.conference}
+          title={pub.title}
+          tags={pub.tags}
+          topics={pub.topics}
+        />
+      ))}
+    </Box>
+  </section>
+));
+
+PublicationsPage.displayName = 'PublicationsPage';
 
 export default PublicationsPage;
