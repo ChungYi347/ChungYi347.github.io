@@ -1,19 +1,18 @@
 import React from 'react';
-import { css } from '@emotion/react';
 
 import AboutPage from './AboutPage';
-import PublicationPage from './PublicationsPage';
-import PorjectPage from './ProjectPage';
-
+import PublicationsPage from './PublicationsPage';
+import ProjectPage from './ProjectPage';
 import { useThemeContext } from '../contexts/ThemeContext';
 
 const HomePage = () => {
   const { refs } = useThemeContext();
+
   return (
     <>
-      <AboutPage ref={refs['ABOUT']} />
-      <PublicationPage ref={refs['PUBLICATIONS']} />
-      <PorjectPage ref={refs['PROJECTS']} />
+      <AboutPage ref={refs.ABOUT} />
+      <PublicationsPage ref={refs.PUBLICATIONS} />
+      <ProjectPage ref={refs.PROJECTS} />
     </>
   );
 };

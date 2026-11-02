@@ -2,12 +2,102 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Welcome Chunggi Lee's Hompage!</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Chunggi Lee — PhD Student, Harvard University</title>
+    <meta
+      name="description"
+      content="Chunggi Lee is a Computer Science PhD student at Harvard University advised by Prof. Hanspeter Pfister, working on human-centered multimodal interactive AI for wearable and immersive systems. Publications at CHI, IEEE VIS/TVCG, CVPR, ECCV, and EMNLP."
+    />
+    <meta name="author" content="Chunggi Lee" />
+    <link rel="canonical" href="https://chungyi347.github.io/" />
+
+    <!-- Open Graph (Slack, Facebook, LinkedIn, KakaoTalk) -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Chunggi Lee" />
+    <meta property="og:title" content="Chunggi Lee — PhD Student, Harvard University" />
+    <meta
+      property="og:description"
+      content="Human-Centered Multimodal Interactive AI for Wearable and Immersive Systems. CHI, IEEE VIS/TVCG, CVPR, ECCV, EMNLP."
+    />
+    <meta property="og:url" content="https://chungyi347.github.io/" />
+    <meta property="og:image" content="https://chungyi347.github.io/og-image.png" />
+    <meta property="og:image:alt" content="Chunggi Lee, PhD student at Harvard University" />
+    <meta property="profile:first_name" content="Chunggi" />
+    <meta property="profile:last_name" content="Lee" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Chunggi Lee — PhD Student, Harvard University" />
+    <meta
+      name="twitter:description"
+      content="Human-Centered Multimodal Interactive AI for Wearable and Immersive Systems. CHI, IEEE VIS/TVCG, CVPR, ECCV, EMNLP."
+    />
+    <meta name="twitter:image" content="https://chungyi347.github.io/og-image.png" />
+
+    <!-- 구조화 데이터: 검색엔진이 "Chunggi Lee = Harvard PhD" 를 이해하도록 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Chunggi Lee",
+        "url": "https://chungyi347.github.io/",
+        "jobTitle": "PhD Student in Computer Science",
+        "email": "mailto:chungyi347@gmail.com",
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "Harvard University",
+          "url": "https://www.harvard.edu/"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Ulsan National Institute of Science and Technology (UNIST)",
+          "url": "https://www.unist.ac.kr"
+        },
+        "knowsAbout": [
+          "Human-Computer Interaction",
+          "Multimodal Interactive AI",
+          "Extended Reality",
+          "Computer Vision",
+          "Data Visualization"
+        ],
+        "sameAs": ["https://github.com/ChungYi347"]
+      }
+    </script>
+
+    <!--
+      다크 모드 FOUC 방지: React 마운트 전에 테마를 결정해 배경색을 확정한다.
+      이 스크립트가 없으면 다크 모드 사용자는 흰 화면이 번쩍인 뒤 어두워진다.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var mode = stored ? JSON.parse(stored) : 'auto';
+          if (mode !== 'light' && mode !== 'dark') mode = 'auto';
+          var resolved =
+            mode === 'auto'
+              ? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+              : mode;
+          var root = document.documentElement;
+          root.dataset.theme = resolved;
+          root.style.colorScheme = resolved;
+          root.style.background = resolved === 'dark' ? '#000000' : '#eef0f4';
+        } catch (e) {
+          /* localStorage 차단(사생활 보호 모드 등) 시 라이트로 폴백 */
+        }
+      })();
+    </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      Chunggi Lee — PhD Student in Computer Science at Harvard University, advised by Prof. Hanspeter Pfister. This site
+      requires JavaScript; please see
+      <a href="https://github.com/ChungYi347">github.com/ChungYi347</a> instead.
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

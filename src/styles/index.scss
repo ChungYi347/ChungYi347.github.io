@@ -3,8 +3,32 @@
 }
 
 html {
-  font-size: 12px;
-  font-family: 'Roboto Mono', monospace;
+  /*
+    이전에는 12px 로 고정돼 있었다. rem 기준이 축소되어 모바일 본문이 9px 까지
+    내려갔고, 사용자가 브라우저 기본 글자 크기를 키워도 무시됐다.
+    100% 로 두면 사용자의 설정을 그대로 존중한다 (Apple HIG: Accessibility - 텍스트 200% 확대).
+  */
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  /* 본문은 시스템 폰트 — Apple 기기에서는 SF Pro 가 잡힌다.
+     (SF 폰트는 라이선스상 웹폰트로 임베드할 수 없으므로 시스템 스택으로 참조한다) */
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, 'Segoe UI', Roboto,
+    'Apple SD Gothic Neo', 'Noto Sans KR', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* 고정 헤더에 가려지지 않도록 앵커 스크롤 시 여백을 둔다 */
+  scroll-behavior: smooth;
+}
+
+/* 코드/식별자 성격의 텍스트에만 모노스페이스를 남긴다 */
+code,
+kbd,
+samp,
+pre,
+.mono {
+  font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'Roboto Mono', monospace;
 }
 
 html,
@@ -16,6 +40,12 @@ body,
   flex-direction: column;
 }
 
+body {
+  /* iOS 홈 인디케이터/노치 영역 확보 (viewport-fit=cover 와 짝을 이룬다) */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
 #root > main {
   flex: 1 1;
 }
@@ -23,4 +53,35 @@ body,
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* 키보드 사용자에게만 보이는 포커스 링. 마우스 클릭 시에는 나타나지 않는다. */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+/*
+  모션 최소화 설정 존중 (Apple HIG: Motion - "Make motion optional", WCAG 2.3.3).
+  스크롤 애니메이션, 자동 재생 영상, 트랜지션을 모두 무력화한다.
+*/
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
