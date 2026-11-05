@@ -38,7 +38,7 @@ const Experiences = [
 ];
 
 const NewsItems = [
-  { date: '2026.11', content: 'Submitted 1 first-author IMWUT paper (Nov 2026 cycle).' },
+  { date: '2026.11', content: 'Submitted 2 IMWUT papers (Nov 2026 cycle): 1 first-author, 1 second-author.' },
   { date: '2026.10', content: 'Submitted 1 first-author ACL paper (ARR Oct 2026 cycle).' },
   {
     date: '2026.09',
